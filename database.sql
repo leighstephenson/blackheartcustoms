@@ -8,3 +8,11 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+CREATE TABLE "kit" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (200) NOT NULL,
+    "description" VARCHAR (5000) NOT NULL,
+    "backstory" VARCHAR (5000)
+    "url" VARCHAR 
+);
