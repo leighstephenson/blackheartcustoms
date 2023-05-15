@@ -1,15 +1,20 @@
 import React from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
+//TODO Add photo 
 
 function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>Black Heart Models is a division of Black Heart 
+          Enterprises, LLC and was founded by George Stephenson 
+          in 2009. Black Heart Models is a collaboration of artists 
+          and artisans working together to create horror/sci-fi/fantasy 
+          products for collectors, hobbyists, miniaturists and other 
+          fans of beautiful, spooky, fantastic, and/or weird stuff. 
+          <br/>
+          Our focus is always on quality and customer service. 
+          </p>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ About
 Contact
 Login
 KitDetails 
-Dashboard
+Dashboard  (currently "userPage" )
 Upload images
 Edit existing kits
 Edit information
