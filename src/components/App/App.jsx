@@ -40,11 +40,10 @@ function App() {
           <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
+          {/* shows AboutPage at all times (logged in or not) */}
+
+          //! about
+          <Route exact path="/about">
             <AboutPage />
           </Route>
 
@@ -52,25 +51,24 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
+          {/* logged in shows UserPage else shows LoginPage */}
+         
+          {/*todo will be changing to dashboard */}
+          <ProtectedRoute exact path="/user">
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+        //! contact
+          <Route
             // logged in shows ContactPage else shows LoginPage
             exact
             path="/contact"
           >
             <ContactPage />
-          </ProtectedRoute>
+          </Route>
 
-          <Route
-            exact
-            path="/login"
+          //! login
+          <Route exact path="/login"
           >
             {user.id ?
               // If the user is already logged in, 
@@ -82,10 +80,9 @@ function App() {
             }
           </Route>
 
-          <Route
-            exact
-            path="/registration"
-          >
+          //! registration, will be getting rid of direct paths
+          <Route exact path="/registration">
+
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
@@ -96,10 +93,10 @@ function App() {
             }
           </Route>
 
-          <Route
-            exact
-            path="/home"
-          >
+          //! home
+          <Route exact path="/home">
+
+          //! user / dashboard
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
@@ -114,11 +111,12 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+
         </Switch>
         <Footer />
       </div>
     </Router>
   );
-}
+} // end app()
 
 export default App;
