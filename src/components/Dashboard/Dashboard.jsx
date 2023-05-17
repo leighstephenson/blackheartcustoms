@@ -1,11 +1,11 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //! This will be turned into my dashboard
 //todo need to build the rest of my pages and the functions to push there
 
-function UserPage() {
+function Dashboard() {
 
   // this component doesn't do much to start, just renders some user reducer info to the DOM
 
@@ -17,19 +17,23 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
 
-      <button> Upload Images </button>
+      <button className="btn"> Upload Images </button>
 
-      <button> Edit Existing Kit</button>
+      <br />
+
+      <button className="btn"> Edit Existing Kit</button>
+
+      <br />
 
       <LogOutButton className="btn" />
 
 
     </div>
 
- 
+
   );
 } //! End of function
 
 
 
-export default UserPage;
+export default Dashboard;

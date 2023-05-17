@@ -4,8 +4,8 @@ import { takeEvery, put } from 'redux-saga/effects';
 function* fetchAllKits() {
     // get all kits from the DB
     try {
-        //! What do I put in the string here? Current is what we used for movie.saga
-        const kit = yield axios.get('/api/movie');
+        //TODO '/api/kit' may be wrong 
+        const kit = yield axios.get('/api/kit');
         yield put({ type: 'SET_KITS', payload: kit.data });
 
     } catch {

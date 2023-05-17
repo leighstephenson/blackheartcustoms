@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import UserPage from '../Dashboard/Dashboard';
 import ContactPage from '../ContactPage/ContactPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -40,8 +40,8 @@ function App() {
           <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
-          {/* shows AboutPage at all times (logged in or not) */}
 
+          {/* shows AboutPage at all times (logged in or not) */}
           //! about
           <Route exact path="/about">
             <AboutPage />
@@ -51,25 +51,21 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+
+          //! user / dashboard
           {/* logged in shows UserPage else shows LoginPage */}
-         
           {/*todo will be changing to dashboard */}
           <ProtectedRoute exact path="/user">
             <UserPage />
           </ProtectedRoute>
 
         //! contact
-          <Route
-            // logged in shows ContactPage else shows LoginPage
-            exact
-            path="/contact"
-          >
+          <Route exact path="/contact">
             <ContactPage />
           </Route>
 
           //! login
-          <Route exact path="/login"
-          >
+          <Route exact path="/login">
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
@@ -94,17 +90,18 @@ function App() {
           </Route>
 
           //! home
+          //TODO this where it won't let me view home if logged in?
           <Route exact path="/home">
 
-          //! user / dashboard
-            {user.id ?
+            {/* //! user / dashboard */}
+            {/* {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/user" />
               :
               // Otherwise, show the Landing page
               <LandingPage />
-            }
+            } */}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

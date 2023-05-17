@@ -14,6 +14,7 @@ function Nav() {
         <h2 className="nav-title">Black Heart Customs</h2>
       </Link>
 
+
       {/* If no user is logged in, show these links */}
 
       <div>
@@ -31,7 +32,7 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/contact">
-              Contact Page
+              Contact 
             </Link>
 
             <Link className="navLink" to="/login">
@@ -44,12 +45,21 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
+            <Link className="navLink" to="/home">
               Home
+            </Link>          
+
+            <Link className="navLink" to="/about">
+              About
             </Link>
 
+            <Link className="navLink" to="/contact">
+              Contact 
+            </Link>
 
-
+            <Link className="navLink" to="/user">
+              Dashboard
+            </Link>
             <LogOutButton className="navLink" />
           </>
         )}

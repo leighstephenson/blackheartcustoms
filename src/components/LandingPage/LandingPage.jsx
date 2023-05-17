@@ -51,7 +51,9 @@ function LandingPage() {
             amet nisi.
           </p>
         </div>
-        <div className="grid-col grid-col_4">
+        
+//! Commenting this out to remove registration
+        {/* <div className="grid-col grid-col_4">
           <RegisterForm />
 
           <center>
@@ -60,7 +62,8 @@ function LandingPage() {
               Login
             </button>
           </center>
-        </div>
+        </div> */}
+
       </div>
     </div>
   );
