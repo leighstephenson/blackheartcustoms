@@ -42,6 +42,11 @@ function App() {
           {/* Visiting localhost:3000/about will show the about page. */}
 
           {/* shows AboutPage at all times (logged in or not) */}
+          //! home
+          <Route exact path="/home">
+                <LandingPage />
+          </Route>
+         
           //! about
           <Route exact path="/about">
             <AboutPage />
@@ -89,20 +94,7 @@ function App() {
             }
           </Route>
 
-          //! home
-          //TODO this where it won't let me view home if logged in?
-          <Route exact path="/home">
-
-            {/* //! user / dashboard */}
-            {/* {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the Landing page
-              <LandingPage />
-            } */}
-          </Route>
+         
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
