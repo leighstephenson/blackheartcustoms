@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import './LandingPage.css';
 import { useDispatch, useSelector } from 'react-redux';
+import './LandingPage.css';
 import { Grid } from '@mui/material/';
+import { Typography } from "@mui/material";
+import Card from '@mui/material/Card';
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
 
 // CUSTOM COMPONENTS
 // import RegisterForm from '../RegisterForm/RegisterForm';
@@ -21,11 +25,18 @@ function LandingPage() {
   //! Stores our movies
   const kits = useSelector(store => store.kits);
 
+  //! Sets selected kit and brings user to details
+  const kitSelection = (kit) => {
+    dispatch({ type: 'SET_SELECTED_KIT', payload: kit });
+    history.push('/details')
+  };
+
   //! Fetch the list of movies
   useEffect(() => {
-      dispatch({ type: 'FETCH_KITS' });
+    dispatch({ type: 'FETCH_KITS' });
   }, []);
 
+  //! What displays
   return (
     <div className="container">
       <h2>{heading}</h2>
@@ -37,25 +48,27 @@ function LandingPage() {
           </p>
 
           {kits.map(kit => {
-                    return (
-                            <Grid key={kit.id} sx={{
-                                
-                                display: 'inline',
-                                width: 300,
-                                justifyContent: 'center',
-                            }}>
-                                <h3> {kit.name} </h3>
-<img src={kit.url} />
-                               
-                               
-                            </Grid>
-                    );
-                })}
+            return (
+              <Grid key={kit.id} sx={{
+                display: 'block',
+                width: 300,
+                justifyContent: 'center',
+              }}>
+                <div onClick={() => kitSelection(kit)}>
+                <h3> {kit.name} </h3>
+                <img src={kit.url} alt={kit.name}  />
+                </div>
+                <br />
 
-         
+
+              </Grid>
+            );
+          })}
+
+
         </div>
 
-{/* //! Commenting this out to remove registration for now */}
+        {/* //! Commenting this out to remove registration for now */}
         {/* <div className="grid-col grid-col_4">
           <RegisterForm />
 

@@ -19,7 +19,7 @@ import ContactPage from '../ContactPage/ContactPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import DetailsPage from '../DetailsPage/DetailsPage';
 import './App.css';
 
 function App() {
@@ -79,6 +79,10 @@ function App() {
               // Otherwise, show the login page
               <LoginPage />
             }
+          </Route>
+            //! details 
+          <Route exact path="/details">
+            <DetailsPage />
           </Route>
 
           //! registration, will be getting rid of direct paths
