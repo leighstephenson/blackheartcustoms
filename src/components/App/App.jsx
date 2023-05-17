@@ -20,7 +20,9 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import DetailsPage from '../DetailsPage/DetailsPage';
+import UploadImages from '../UploadImages/UploadImages';
 import './App.css';
+import EditExistingKit from '../EditExistingKit/EditExistingKit';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,9 +46,9 @@ function App() {
           {/* shows AboutPage at all times (logged in or not) */}
           //! home
           <Route exact path="/home">
-                <LandingPage />
+            <LandingPage />
           </Route>
-         
+
           //! about
           <Route exact path="/about">
             <AboutPage />
@@ -60,8 +62,18 @@ function App() {
           //! user / dashboard
           {/* logged in shows UserPage else shows LoginPage */}
           {/*todo will be changing to dashboard */}
-          <ProtectedRoute exact path="/user">
+          <ProtectedRoute exact path="/dashboard">
             <UserPage />
+          </ProtectedRoute>
+
+          //! Upload Images
+          <ProtectedRoute exact path="/uploadImages">
+            <UploadImages />
+          </ProtectedRoute>
+
+          //! Edit Existing Kit
+          <ProtectedRoute exact path="/editExisting">
+            <EditExistingKit/>
           </ProtectedRoute>
 
         //! contact
@@ -74,13 +86,13 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/dashboard" />
               :
               // Otherwise, show the login page
               <LoginPage />
             }
           </Route>
-            //! details 
+            //! details
           <Route exact path="/details">
             <DetailsPage />
           </Route>
@@ -91,14 +103,14 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/dashboard" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
             }
           </Route>
 
-         
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

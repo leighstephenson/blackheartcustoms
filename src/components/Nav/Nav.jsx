@@ -57,7 +57,7 @@ function Nav() {
               Contact 
             </Link>
 
-            <Link className="navLink" to="/user">
+            <Link className="navLink" to="/dashboard">
               Dashboard
             </Link>
             <LogOutButton className="navLink" />

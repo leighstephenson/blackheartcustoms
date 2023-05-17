@@ -44,7 +44,7 @@ function LandingPage() {
       <div className="grid">
         <div className="grid-col grid-col_8">
           <p>
-            Brief desciption of Black Heart Models and the use of this app
+            Brief description of Black Heart Models and the use of this app
           </p>
 
           {kits.map(kit => {
