@@ -22,7 +22,7 @@ function LandingPage() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  //! Stores our movies
+  //! Stores our kits
   const kits = useSelector(store => store.kits);
 
   //! Sets selected kit and brings user to details

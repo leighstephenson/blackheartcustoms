@@ -23,6 +23,7 @@ import DetailsPage from '../DetailsPage/DetailsPage';
 import UploadImages from '../UploadImages/UploadImages';
 import './App.css';
 import EditExistingKit from '../EditExistingKit/EditExistingKit';
+import EditInformation from '../EditInformation/EditInformation';
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,11 @@ function App() {
           //! Edit Existing Kit
           <ProtectedRoute exact path="/editExisting">
             <EditExistingKit/>
+          </ProtectedRoute>
+
+          //! Edit Information 
+          <ProtectedRoute exact path="/editInformation">
+            <EditInformation/>
           </ProtectedRoute>
 
         //! contact
