@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
+//! get all kits from the DB
 function* fetchAllKits() {
-    // get all kits from the DB
+    console.log('are we here');
     try {
         const kit = yield axios.get('/api/kit');
         console.log('Get all:', kit.data);
@@ -11,10 +12,49 @@ function* fetchAllKits() {
     } catch {
         console.log('Error in fetchAllKits in kit.saga');
     }
-}
+}; // End fetchAllKits()
 
+//! Fetch selected kit
+function* fetchSelectedKit(action) {
+    try {
+        console.log(`Get this kit: ${action.payload}`);
+        const selectedKit = yield axios.get(`/api/kit/selected?id=${action.payload}`);
+        yield put({ type: 'SET_SELECTED_KIT', payload: { selectedKit: selectedKit.data[0] } })
+    } catch {
+        console.log('Error in fetchSelectedKit Saga')
+    }
+} // End fetchSelectedKit()
+
+//TODO add all the things ~
 function* kitSaga() {
     yield takeEvery('FETCH_KITS', fetchAllKits);
-};
+    yield takeEvery('EDIT_KIT', editKit)
+    yield takeEvery('DELETE_KIT', deleteKit)
+    yield takeEvery('FETCH_SELECTED_KIT', fetchSelectedKit);
+
+
+}; //End kitSaga()
+
+
+//! Edit kit
+function* editKit(action) {
+    try {
+        yield axios.put(`/api/kit/edit?id=${action.payload.id}`, action.payload);
+        yield put({ type: 'FETCH_KITS' });
+    } catch (error) {
+        console.log(`Error in editKit in saga ${error}`);
+    }
+} // End editKit
+
+//! Delete Kit 
+function* deleteKit(action) {
+    try {
+        yield axios.delete(`/api/kit/${action.payload}`)
+        yield put({ type: 'FETCH_KITS' });
+    } catch (error) {
+        console.log(`Error in deleteKit in saga ${error}`);
+    }
+} // End deleteKit
+
 
 export default kitSaga;
