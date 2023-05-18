@@ -9,21 +9,24 @@ function* fetchAllKits() {
         console.log('Get all:', kit.data);
         yield put({ type: 'SET_KITS', payload: kit.data });
 
-    } catch {
+    } catch (error)  {
         console.log('Error in fetchAllKits in kit.saga');
     }
 }; // End fetchAllKits()
 
+
 //! Fetch selected kit
+//TODO Getting an error here 
 function* fetchSelectedKit(action) {
     try {
         console.log(`Get this kit: ${action.payload}`);
         const selectedKit = yield axios.get(`/api/kit/selected?id=${action.payload}`);
         yield put({ type: 'SET_SELECTED_KIT', payload: { selectedKit: selectedKit.data[0] } })
-    } catch {
-        console.log('Error in fetchSelectedKit Saga')
+    } catch (error){
+        console.log(`Error in fetchSelectedKit in saga ${error}`)
     }
 } // End fetchSelectedKit()
+
 
 //TODO add all the things ~
 function* kitSaga() {

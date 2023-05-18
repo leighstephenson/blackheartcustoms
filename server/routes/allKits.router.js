@@ -36,13 +36,13 @@ router.get('/editInformation', (req, res) => {
 // });
 
 //! PUT
-router.put('/edit', (req, res) => {
+router.put('/editExisting', (req, res) => {
   console.log('In PUT request');
   let updatedKit = req.body;
 
   // Query to update kit
   // "name", "description", "backstory", "url", "order"
-  // only included values I want to change.. 
+  // only included values I want to change
   let updateQuery = `UPDATE "kit" 
         SET "name" = $1, "description" = $2, "backstory" = $3, "url" = $4, "order" = $5
         WHERE "id" = $6;`;
@@ -52,7 +52,7 @@ router.put('/edit', (req, res) => {
     updatedKit.backstory,
     updatedKit.url,
     updatedKit.order,
-    updatedKit.id])
+   ])
     .then(() => { })
     .catch((error) => {
       console.log('Error in PUT on allKits.router', error);
