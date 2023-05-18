@@ -9,7 +9,7 @@ function EditExistingKit() {
     const dispatch = useDispatch();
     const history = useHistory();
 
- 
+
     //TODO Also need to add "back to dashboard" button later
 
     //! Stores our kits
@@ -19,9 +19,15 @@ function EditExistingKit() {
     const kitSelectionToEdit = (kit) => {
         dispatch({ type: 'SET_SELECTED_KIT', payload: kit });
         history.push('/editInformation')
+        
+        // Just to test 
+        const selectedKit = kit.name
+        console.log({ selectedKit })
+
     };
 
-    //! Fetch the list of movies
+
+    //! Fetch the list of kits
     useEffect(() => {
         dispatch({ type: 'FETCH_KITS' });
     }, []);
@@ -30,13 +36,13 @@ function EditExistingKit() {
     //! What displays
     return (
         <>
-        <h1> Edit existing kit </h1>
+            <h1> Edit existing kit </h1>
 
             <div className="container">
 
                 <div className="grid">
                     <div className="grid-col grid-col_8">
-                       
+
 
                         {kits.map(kit => {
                             return (
@@ -51,7 +57,7 @@ function EditExistingKit() {
                                     </div>
                                     <br />
 
-                                    <button onClick={() => kitSelectionToEdit (kit)}> Edit this kit </button>
+                                    <button onClick={() => kitSelectionToEdit(kit)}> Edit this kit </button>
                                 </Grid>
                             );
                         })}
