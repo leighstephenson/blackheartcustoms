@@ -39,29 +39,44 @@ function LandingPage() {
   //! What displays
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <Typography variant="h2"
+        sx={{
+          textAlign: 'center'
+        }}>
+        {heading}
+      </Typography>
+
+<br/>
+
+      <Typography variant="h6"
+      sx={{
+        textAlign: 'center'
+      }}>
+        Brief description of Black Heart Models and the use of this app
+      </Typography>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>
-            Brief description of Black Heart Models and the use of this app
-          </p>
+
 
           {kits.map(kit => {
             return (
-              <Grid key={kit.id} sx={{
+              <Card sx={{
                 display: 'block',
-                width: 300,
+                padding: 1,
+                margin: 5,
+                width: 400,
                 justifyContent: 'center',
+                textAlign: 'center',
               }}>
                 <div onClick={() => kitSelection(kit)}>
-                <h3> {kit.name} </h3>
-                <img src={kit.url} alt={kit.name}  />
+                  <h3> {kit.name} </h3>
+                  <img src={kit.url} alt={kit.name} />
                 </div>
                 <br />
 
 
-              </Grid>
+                </Card>
             );
           })}
 

@@ -27,13 +27,20 @@ function DetailsPage() {
 
             }}>
                 <CardContent>
-                    <Typography variant="h7">
+                    <Typography variant="h7"
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            fontStyle: 'italic',
+                        }}>
                         Details for
                     </Typography>
 
                     <Typography variant="h3"
                         sx={{
-                            fontStyle: 'italic'
+                            fontStyle: 'italic',
+                            textAlign: 'center',
+
 
                         }}>
                         {selectedKit.name}
@@ -57,23 +64,25 @@ function DetailsPage() {
                         {selectedKit.backstory}
                     </Typography>
 
-                </CardContent>
-            </Card>
-
-            <Button variant="outlined" onClick={goBack}
+                    <Button variant="outlined" onClick={goBack}
                 sx={{
-                    margin: 3,
+                    justifyContent: "center",
                     color: 'black',
                     borderColor: 'black',
-                    backgroundColor: 'lightGrey',
+                    borderWidth: 2,
+                    backgroundColor: '#A8A900',
                     ':hover': {
-                        bgcolor: 'salmon',
+                        bgcolor: '#C21916',
                     },
-
                 }}>
                 Go Back
             </Button>
 
+                </CardContent>
+            </Card>
+
+
+           
         </>
     )
 }; // end of DetailsPage()

@@ -19,13 +19,7 @@ function EditExistingKit() {
     const kitSelectionToEdit = (kit) => {
         dispatch({ type: 'SET_SELECTED_KIT', payload: kit });
         history.push(`/editInformation/${kit.id}`)
-        
-        // Just to test 
-        const selectedKit = kit.name
-        console.log({ selectedKit })
-
     };
-
 
     //! Fetch the list of kits
     useEffect(() => {

@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 
 function UploadImages() {
 
   //! Hooks
-  const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Upload Images');
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+   //! Back to dashboard
+   const goBack = () => { history.push('/dashboard') }
 
   //TODO need submit button to POST the upload to the server 
-
   //! What displays
   return (
 
     <div>
       <h2>{heading}</h2>
-      <Button>
+      <Button onClick={goBack}>
         Back
       </Button>
 
