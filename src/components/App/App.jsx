@@ -78,7 +78,7 @@ function App() {
           </ProtectedRoute>
 
           //! Edit Information 
-          <ProtectedRoute exact path="/editInformation">
+          <ProtectedRoute exact path="/editInformation/:id">
             <EditInformation/>
           </ProtectedRoute>
 

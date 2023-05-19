@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Button } from '@mui/material';
 
 
 function UploadImages() {
@@ -8,15 +9,26 @@ function UploadImages() {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Upload Images');
 
-  //TODO Need to add a button to open file selector
-  //TODO add a submit button to POST the upload to the server 
-  //TODO add back to dashboard button later
+  //TODO need submit button to POST the upload to the server 
 
   //! What displays
   return (
 
     <div>
       <h2>{heading}</h2>
+      <Button>
+        Back
+      </Button>
+
+      <Button>
+        Upload images
+      </Button>
+
+      <Button>
+        Submit
+      </Button>
+
+
     </div>
 
   );

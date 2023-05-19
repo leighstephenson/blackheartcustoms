@@ -8,12 +8,12 @@ import TextField from '@mui/material/TextField';
 
 function EditInformation() {
 
-    //! Fetch selected
+    //! Fetch selected kit
     useEffect(() => {
         dispatch({ type: 'FETCH_SELECTED_KIT', payload: id });
     }, []);
 
-    //! Our hooks
+    //! Hooks
     const dispatch = useDispatch();
     const history = useHistory();
     let { id } = useParams();
@@ -30,17 +30,17 @@ function EditInformation() {
     const [order, setKitOrder] = useState(selectedKit.order);
 
 
-
     //! Back to dashboard
     const goBack = () => { history.push('/dashboard') }
     //TODO should I have the back button go back to dash or back to selection?
     //TODO Still getting a 404 error
 
+
     //! handleChange - need one for EACH value that can change. 
     // kit: "name", "description", "backstory", "url", "order"
-
     const handleNameChange = (event) => {
         setKitName(event.target.value);
+        console.log(name);
     }
 
     const handleDescriptionChange = (event) => {
@@ -63,11 +63,20 @@ function EditInformation() {
     const submitChanges = (event) => {
         event.preventDefault();
         dispatch({
-            type: 'EDIT_KIT', payload: { name, description, backstory, url, order }
+            type: 'EDIT_KIT', payload: { id, name, description, backstory, url, order }
         })
         history.push('/editExisting');
     };
     //TODO maybe add a progress bar and success page for a stretch??
+
+
+    //! Deletes a kit from the database
+    const deleteKit = () => {
+        if (window.confirm("Warning: This kit will be deleted")) {
+            dispatch({ type: 'DELETE_KIT', payload: id });
+            history.push('/editExisting')
+        }
+    };
 
 
     //! What displays 
@@ -76,7 +85,7 @@ function EditInformation() {
             <h1> Edit Information </h1>
 
             <img src={selectedKit.url} width='200' />
-            
+
             <br />
             <br />
 
@@ -149,6 +158,20 @@ function EditInformation() {
 
                     }}>
                     Submit
+                </Button>
+
+                <Button variant ="outlined" onClick={deleteKit}
+                    sx={{
+                        margin: 3,
+                        color: 'black',
+                        borderColor: 'black',
+                        backgroundColor: 'lightGrey',
+                        ':hover': {
+                            bgcolor: 'red',
+                        },
+                    }}
+                >
+                    Delete Kit
                 </Button>
 
                 {/*//! Button to go back */}

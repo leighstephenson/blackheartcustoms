@@ -4,7 +4,7 @@ const router = express.Router();
 
 //! Get 
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM kit`;
+  const query = `SELECT * FROM kit ORDER BY "order" ASC`;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
@@ -19,13 +19,13 @@ router.get('/', (req, res) => {
 //TODO Pick up here.
 //! GET a selected kit
 router.get('/editInformation', (req, res) => {
-	const kitId = req.query.id
-	const queryText = `SELECT * FROM kits WHERE kit_id=$1`;
-	pool.query(queryText, [kitId]).then((result) => {
-		res.send(result.rows);
-	}).catch((error) => {
-		console.log('ERROR in getting selected kit on router', error)
-	})
+  const kitId = req.query.id
+  const queryText = `SELECT * FROM kits WHERE kit_id=$1`;
+  pool.query(queryText, [kitId]).then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('ERROR in getting selected kit on router', error)
+  })
 });
 
 // /**
@@ -35,11 +35,11 @@ router.get('/editInformation', (req, res) => {
 //   // POST route code here
 // });
 
-//! PUT
-router.put('/editExisting', (req, res) => {
+
+//! PUT TO UPDATE 
+router.put('/edit', (req, res) => {
   console.log('In PUT request');
   let updatedKit = req.body;
-
   // Query to update kit
   // "name", "description", "backstory", "url", "order"
   // only included values I want to change
@@ -52,7 +52,8 @@ router.put('/editExisting', (req, res) => {
     updatedKit.backstory,
     updatedKit.url,
     updatedKit.order,
-   ])
+    updatedKit.id
+    ])
     .then(() => { })
     .catch((error) => {
       console.log('Error in PUT on allKits.router', error);
@@ -76,9 +77,5 @@ router.delete('/:id', (req, res) => {
       res.sendStatus(500);
     })
 });
-
-
-
-
 
 module.exports = router;

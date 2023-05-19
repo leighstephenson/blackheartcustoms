@@ -16,7 +16,6 @@ function* fetchAllKits() {
 
 
 //! Fetch selected kit
-//TODO Getting an error here 
 function* fetchSelectedKit(action) {
     try {
         console.log(`Get this kit: ${action.payload}`);
@@ -28,21 +27,11 @@ function* fetchSelectedKit(action) {
 } // End fetchSelectedKit()
 
 
-//TODO add all the things ~
-function* kitSaga() {
-    yield takeEvery('FETCH_KITS', fetchAllKits);
-    yield takeEvery('EDIT_KIT', editKit)
-    yield takeEvery('DELETE_KIT', deleteKit)
-    yield takeEvery('FETCH_SELECTED_KIT', fetchSelectedKit);
-
-
-}; //End kitSaga()
-
-
 //! Edit kit
 function* editKit(action) {
+    console.log(action.payload)
     try {
-        yield axios.put(`/api/kit/edit?id=${action.payload.id}`, action.payload);
+        yield axios.put(`/api/kit/edit`, action.payload);
         yield put({ type: 'FETCH_KITS' });
     } catch (error) {
         console.log(`Error in editKit in saga ${error}`);
@@ -58,6 +47,16 @@ function* deleteKit(action) {
         console.log(`Error in deleteKit in saga ${error}`);
     }
 } // End deleteKit
+
+//TODO add all the things ~
+function* kitSaga() {
+    yield takeEvery('FETCH_KITS', fetchAllKits);
+    yield takeEvery('EDIT_KIT', editKit)
+    yield takeEvery('DELETE_KIT', deleteKit)
+    yield takeEvery('FETCH_SELECTED_KIT', fetchSelectedKit);
+
+
+}; //End kitSaga()
 
 
 export default kitSaga;
