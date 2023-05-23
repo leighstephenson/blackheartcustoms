@@ -20,13 +20,14 @@ CREATE TABLE "kit" (
 );
 
 CREATE TABLE "photos" (
-    "id" SERIAL PRIMARY KEY
+    "id" SERIAL PRIMARY KEY,
     "kit_id" INTEGER NOT NULL,
     "url" VARCHAR NOT NULL
 );
 
 -- todo starting out storing the images locally. 
 -- todo will be trying to use AWS s3 buckets later 
+-- todo need to work in this new "photos" table 😬
 INSERT INTO "kit" ("name", "description", "backstory", "url", "user_id", "order") 
 VALUES 
 ('Cyclops', 'description here for cyclops', 'backstory here for cyclops', 'images/cyclops.png', 1, 1 ),

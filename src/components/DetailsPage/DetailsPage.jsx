@@ -64,25 +64,27 @@ function DetailsPage() {
                         {selectedKit.backstory}
                     </Typography>
 
-                    <Button variant="outlined" onClick={goBack}
-                sx={{
-                    justifyContent: "center",
-                    color: 'black',
-                    borderColor: 'black',
-                    borderWidth: 2,
-                    backgroundColor: '#A8A900',
-                    ':hover': {
-                        bgcolor: '#C21916',
-                    },
-                }}>
-                Go Back
-            </Button>
 
                 </CardContent>
             </Card>
+            <center>
+                <Button variant="outlined" onClick={goBack}
+                    sx={{
+                        justifyContent: "center",
+                        color: 'black',
+                        borderColor: 'black',
+                        borderWidth: 2,
+                        backgroundColor: '#A8A900',
+                        ':hover': {
+                            bgcolor: '#C21916',
+                        },
+                    }}>
+                    Go Back
+                </Button>
+            </center>
 
 
-           
+
         </>
     )
 }; // end of DetailsPage()

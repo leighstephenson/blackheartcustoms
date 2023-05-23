@@ -18,12 +18,15 @@ function LandingPage() {
   //   history.push('/login');
   // };
 
+
   //! Our hooks
   const dispatch = useDispatch();
   const history = useHistory();
 
+
   //! Stores our kits
   const kits = useSelector(store => store.kits);
+
 
   //! Sets selected kit and brings user to details
   const kitSelection = (kit) => {
@@ -31,10 +34,12 @@ function LandingPage() {
     history.push('/details')
   };
 
+
   //! Fetch the list of movies
   useEffect(() => {
     dispatch({ type: 'FETCH_KITS' });
   }, []);
+
 
   //! What displays
   return (
@@ -46,37 +51,41 @@ function LandingPage() {
         {heading}
       </Typography>
 
-<br/>
+      <br />
 
       <Typography variant="h6"
-      sx={{
-        textAlign: 'center'
-      }}>
+        sx={{
+          textAlign: 'center'
+        }}>
         Brief description of Black Heart Models and the use of this app
       </Typography>
 
+<br/>
+<br/>
+
       <div className="grid">
-        <div className="grid-col grid-col_8">
+        <div>
 
 
           {kits.map(kit => {
             return (
-              <Card sx={{
+              <Grid sx={{
                 display: 'block',
                 padding: 1,
-                margin: 5,
-                width: 400,
-                justifyContent: 'center',
+                marginBottom: 3,
+                width: 500,
+                maxHeight: 900,
                 textAlign: 'center',
+                boxShadow: 4,
               }}>
-                <div onClick={() => kitSelection(kit)}>
-                  <h3> {kit.name} </h3>
-                  <img src={kit.url} alt={kit.name} />
-                </div>
-                <br />
 
+                  <Card onClick={() => kitSelection(kit)}>
+                    <h3> {kit.name} </h3>
+                    <img src={kit.url} alt={kit.name} />
+                  </Card>
+              
 
-                </Card>
+              </Grid>
             );
           })}
 

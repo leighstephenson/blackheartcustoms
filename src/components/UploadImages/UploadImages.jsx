@@ -11,8 +11,11 @@ function UploadImages() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  
    //! Back to dashboard
    const goBack = () => { history.push('/dashboard') }
+
+
 
   //TODO need submit button to POST the upload to the server 
   //! What displays
@@ -20,15 +23,15 @@ function UploadImages() {
 
     <div>
       <h2>{heading}</h2>
-      <Button onClick={goBack}>
+      <Button variant="outlined" onClick={goBack}>
         Back
       </Button>
 
-      <Button>
+      <Button variant="outlined">
         Upload images
       </Button>
 
-      <Button>
+      <Button variant="outlined">
         Submit
       </Button>
 

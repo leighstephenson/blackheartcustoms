@@ -9,35 +9,37 @@ import { useHistory } from "react-router-dom";
 
 function Dashboard() {
 
-   //! Our hooks
-   let history = useHistory();
+  //! Our hooks
+  let history = useHistory();
 
   const user = useSelector((store) => store.user);
 
- //! Leads to upload images
- const toUpload = () => { history.push('/uploadImages') }
+  //! Leads to upload images
+  const toUpload = () => { history.push('/uploadImages') }
 
 
- //! Leads to edit existing kit
- const toEditExistingKit = () => { history.push('/editExisting') }
+  //! Leads to edit existing kit
+  const toEditExistingKit = () => { history.push('/editExisting') }
 
   //! What displays
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-
-      <button className="btn" onClick={toUpload}> Upload Images </button>
-
-      <br />
-
-      <button className="btn" onClick={toEditExistingKit}> Edit Existing Kit</button>
-
-      <br />
-
-      <LogOutButton className="btn" />
+      <center>
+        <h2>Welcome, {user.username}!</h2>
+        <p>Your ID is: {user.id}</p>
 
 
+        <button className="btn" onClick={toUpload}> Upload Images </button>
+
+        <br /> <br/>
+
+        <button className="btn" onClick={toEditExistingKit}> Edit Existing Kit</button>
+
+        <br /> <br/>
+
+        <LogOutButton className="btn" />
+
+      </center>
     </div>
 
 
