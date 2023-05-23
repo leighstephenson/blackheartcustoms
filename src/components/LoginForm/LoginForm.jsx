@@ -1,7 +1,8 @@
 import { red } from '@mui/material/colors';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Typography } from '@mui/material';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -28,12 +29,20 @@ function LoginForm() {
   //! What displays
   return (
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+      <Typography variant="h3"
+        sx={{ textAlign: 'center', }}>
+        Login
+      </Typography>
+
+      <br />
+      <br />
+
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
       )}
+      
       <div>
         <label htmlFor="username">
           Username:

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Typography } from '@mui/material';
+import "./AboutPage.css";
 
 //TODO Add photo 
+//TODO Maybe add more history on garage kit hobby
 
 function AboutPage() {
   return (
     <div className="container">
       <div>
-        <Typography variant="h2"
+        <Typography variant="h3"
           sx={{
             textAlign: "center",
           }}>

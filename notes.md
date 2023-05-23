@@ -31,3 +31,4 @@ Things to do for base mode:
 -Fix navigation styling
 -Add content to contact page
 -STYLE
+-Add social media links to footer too

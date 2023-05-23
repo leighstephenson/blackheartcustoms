@@ -40,11 +40,11 @@ function LandingPage() {
     dispatch({ type: 'FETCH_KITS' });
   }, []);
 
-
+  //TODO Edit all of this text
   //! What displays
   return (
     <div className="container">
-      <Typography variant="h2"
+      <Typography variant="h3"
         sx={{
           textAlign: 'center'
         }}>
@@ -53,15 +53,41 @@ function LandingPage() {
 
       <br />
 
-      <Typography variant="h6"
+      <Typography variant="p"
         sx={{
           textAlign: 'center'
+
         }}>
-        Brief description of Black Heart Models and the use of this app
+        Black Heart Models is a family-owned business that specializes in
+        busts and wall-hangers of a variety of sci-fi, horror,
+        and fantasty subjects.
+
+        <br />
+        <br />
+
+        Most of our products come unpainted, so we offer a custom
+        painting service for those who don't have the time, skill,
+        or patience to paint their own.
+
+        <br />
+        <br />
+        On this website you will find examples of custom work
+        done by George and Leigh Stephenson.
+
       </Typography>
 
-<br/>
-<br/>
+      <br />
+      <br />
+      <hr />
+      <br />
+
+      <Typography variant="h5"
+        sx={{ textAlign: 'center', }}>
+        Click a photo to view more details.
+      </Typography>
+
+      <br />
+      <br />
 
       <div className="grid">
         <div>
@@ -73,17 +99,17 @@ function LandingPage() {
                 display: 'block',
                 padding: 1,
                 marginBottom: 3,
-                width: 500,
-                maxHeight: 900,
+                width: "auto",
+                maxHeight: "auto",
                 textAlign: 'center',
                 boxShadow: 4,
               }}>
 
-                  <Card onClick={() => kitSelection(kit)}>
-                    <h3> {kit.name} </h3>
-                    <img src={kit.url} alt={kit.name} />
-                  </Card>
-              
+                <Card onClick={() => kitSelection(kit)}>
+                  <h3> {kit.name} </h3>
+                  <img src={kit.url} alt={kit.name} />
+                </Card>
+
 
               </Grid>
             );
