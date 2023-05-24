@@ -42,7 +42,7 @@ function LoginForm() {
           {errors.loginMessage}
         </h3>
       )}
-      
+
       <div>
         <label htmlFor="username">
           Username:
@@ -55,9 +55,10 @@ function LoginForm() {
           />
         </label>
       </div>
+
       <div>
         <label htmlFor="password">
-          Password:
+          Password:      
           <input
             type="password"
             name="password"
@@ -67,9 +68,11 @@ function LoginForm() {
           />
         </label>
       </div>
-      <div>
+
+      <center>
         <input className="btn" type="submit" name="submit" value="Log In" />
-      </div>
+      </center>
+
     </form>
   );
 }

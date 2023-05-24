@@ -1,6 +1,8 @@
 const express = require('express');
+
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const fileUpload = require('express-fileupload');
 
 const app = express();
 
@@ -10,6 +12,11 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const allKitsRouter = require('./routes/allKits.router')
+const photosRouter = require('./routes/photos.router')
+
+
+// Accept photo uploads
+app.use(fileUpload());
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -22,10 +29,11 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
-//TODO need to figure this stuff out
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/kit', allKitsRouter);
+app.use('/api/photos',photosRouter);
+
 
 // Serve static files
 app.use(express.static('build'));

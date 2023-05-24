@@ -9,12 +9,14 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.0",
+    "@mui/material": "^5.13.2",
+    "aws-sdk": "^2.1383.0",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
+    "express-fileupload": "^1.4.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
@@ -51,6 +53,5 @@
       "last 1 safari version"
     ]
   },
-
   "heroku-run-build-script": true
 }

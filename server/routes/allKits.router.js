@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
 
 });
 
-//TODO Pick up here.
 //! GET a selected kit
 router.get('/editInformation', (req, res) => {
   const kitId = req.query.id

@@ -9,14 +9,14 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 
 // CUSTOM COMPONENTS
-// import RegisterForm from '../RegisterForm/RegisterForm';
+import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
 
-  // const onLogin = (event) => {
-  //   history.push('/login');
-  // };
+  const onLogin = (event) => {
+    history.push('/login');
+  };
 
 
   //! Our hooks
@@ -71,6 +71,7 @@ function LandingPage() {
 
         <br />
         <br />
+        
         On this website you will find examples of custom work
         done by George and Leigh Stephenson.
 
@@ -119,7 +120,7 @@ function LandingPage() {
         </div>
 
         {/* //! Commenting this out to remove registration for now */}
-        {/* <div className="grid-col grid-col_4">
+        <div className="grid-col grid-col_4">
           <RegisterForm />
 
           <center>
@@ -128,7 +129,7 @@ function LandingPage() {
               Login
             </button>
           </center>
-        </div> */}
+        </div>
 
       </div>
     </div>
