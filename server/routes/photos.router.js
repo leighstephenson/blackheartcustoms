@@ -1,5 +1,5 @@
-const express = require('express');
 const pool = require('../modules/pool');
+const express = require('express');
 const router = express.Router();
 const aws = require('aws-sdk');
 
@@ -9,16 +9,7 @@ const s3Client = new aws.S3({
     region: process.env.AWS_REGION,
 });
 
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
-    // GET route code here
-});
-
-/**
- * !!POST route 
- */
+//!POST 
 router.post('/', async (req, res) => {
     try {
         const imageProps = req.query;
@@ -29,8 +20,11 @@ router.post('/', async (req, res) => {
             Key: imageProps.name,
             Body: imageData,
             // ACL: 'public-read',
-        })
-        console.log(s3Res);
+        }).promise()
+        console.log(s3Res.Location);
+        const queryText = `INSERT INTO "photos" ("url","kit_id")
+        VALUES ($1, $2)`;
+        await pool.query(queryText, [s3Res.Location, imageProps.kitId])
         res.sendStatus(201)
     } catch (error) {
         console.log(error)

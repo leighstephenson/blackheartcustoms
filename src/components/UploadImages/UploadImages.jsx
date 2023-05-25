@@ -13,27 +13,29 @@ function UploadImages() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  
-   //! Back to dashboard
-   const goBack = () => { history.push('/dashboard') }
 
-   const onFileChange = (event) => {
+  //! Back to dashboard
+  const goBack = () => { history.push('/dashboard') }
+
+  const onFileChange = (event) => {
     const fileToUpload = event.target.files[0];
     const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
     if (acceptedImageTypes.includes(fileToUpload.type)) {
-        setSelectedFile(fileToUpload);
+      setSelectedFile(fileToUpload);
     } else {
-        alert('Please select an image');
+      alert('Please select an image');
     }
-};
+  };
 
-//TODO move this to saga if time allows
-const uploadImage = (event) => {
-  const fileName = encodeURIComponent(selectedFile.name);
-  const formData = new FormData();
-  formData.append('image', selectedFile);
-  axios.post(`api/photos?name=${fileName}`, formData);
-};
+  //TODO move this to saga if time allows
+  //!!!
+  //TODO kitId should be replaced by actual kit id
+  const uploadImage = (event) => {
+    const fileName = encodeURIComponent(selectedFile.name);
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+    axios.post(`api/photos?name=${fileName}&kitId=1`, formData);
+  };
 
   //TODO need submit button to POST the upload to the server 
   //! What displays
@@ -46,10 +48,10 @@ const uploadImage = (event) => {
       </Button>
 
       <input
-    type="file"
-    accept="image/*"
-    onChange={onFileChange}
-/>
+        type="file"
+        accept="image/*"
+        onChange={onFileChange}
+      />
 
       <Button onClick={uploadImage} variant="outlined">
         Upload images
