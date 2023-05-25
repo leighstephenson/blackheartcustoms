@@ -2,15 +2,19 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//! SELECT all kit columns PLUS the first photo (list of kits)
+//SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIMIT 1) as "photo"  FROM "kit" as k;
+//? what I had query in GET `SELECT * FROM kit ORDER BY "order" ASC`
+
 //! Get 
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM kit ORDER BY "order" ASC`;
+  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIMIT 1) as "photo"  FROM "kit" as k;`;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
     })
-    .catch(err => {
-      console.log('ERROR: Get all kits', err);
+    .catch((error) => {
+      console.log('ERROR: Get all kits', error);
       res.sendStatus(500)
     })
 
@@ -64,7 +68,6 @@ router.put('/edit', (req, res) => {
 router.delete('/:id', (req, res) => {
   console.log('In DELETE request');
   let deletedKit = req.params.id;
-  //TODO make sure this is correct as "kit" not "kits"
   // Query to delete a specific kit based on id
   let deleteKitQuery = `DELETE FROM "kit" WHERE "id" = $1;`
   pool.query(deleteKitQuery, [deletedKit])

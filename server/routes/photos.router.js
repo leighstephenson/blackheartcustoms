@@ -9,6 +9,8 @@ const s3Client = new aws.S3({
     region: process.env.AWS_REGION,
 });
 
+//Todo do I need to do another GET here?
+
 //!POST 
 router.post('/', async (req, res) => {
     try {
