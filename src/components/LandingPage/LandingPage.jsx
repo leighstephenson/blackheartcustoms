@@ -24,18 +24,20 @@ function LandingPage() {
   const history = useHistory();
 
 
-  //! Stores our kits
+  //! Stores our kits and photos?
   const kits = useSelector(store => store.kits);
-
+  const photos = useSelector(store => store.photos);
 
   //! Sets selected kit and brings user to details
   const kitSelection = (kit) => {
-    dispatch({ type: 'SET_SELECTED_KIT', payload: kit });
+    dispatch({ type: 'SET_SELECTED_KIT', payload: kit }
+    
+    );
     history.push('/details')
   };
 
 
-  //! Fetch the list of movies
+  //! Fetch the list of kits
   useEffect(() => {
     dispatch({ type: 'FETCH_KITS' });
   }, []);
@@ -108,7 +110,7 @@ function LandingPage() {
 
                 <Card onClick={() => kitSelection(kit)}>
                   <h3> {kit.name} </h3>
-                  <img src={kit.url} alt={kit.name} />
+                  <img src={kit.photo} alt={kit.name} />
                 </Card>
 
 

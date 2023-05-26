@@ -47,7 +47,7 @@ function EditExistingKit() {
                                 }}>
                                     <div>
                                         <h3> {kit.name} </h3>
-                                        <img src={kit.url} alt={kit.name} />
+                                        <img src={kit.photo} alt={kit.name} />
                                     </div>
                                     <br />
 

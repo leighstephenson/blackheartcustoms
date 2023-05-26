@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import Input from '@mui/material';
 
 
 function UploadImages() {
@@ -14,8 +15,11 @@ function UploadImages() {
   const history = useHistory();
 
 
+
   //! Back to dashboard
   const goBack = () => { history.push('/dashboard') }
+  // const editExisting = () => { history.push('/editExisting') }
+
 
   const onFileChange = (event) => {
     const fileToUpload = event.target.files[0];
@@ -28,7 +32,6 @@ function UploadImages() {
   };
 
   //TODO move this to saga if time allows
-  //!!!
   //TODO kitId should be replaced by actual kit id
   const uploadImage = (event) => {
     const fileName = encodeURIComponent(selectedFile.name);
@@ -37,7 +40,6 @@ function UploadImages() {
     axios.post(`api/photos?name=${fileName}&kitId=1`, formData);
   };
 
-  //TODO need submit button to POST the upload to the server 
   //! What displays
   return (
 
@@ -47,20 +49,19 @@ function UploadImages() {
         Back
       </Button>
 
+      <br/>
+
       <input
         type="file"
         accept="image/*"
         onChange={onFileChange}
       />
 
+      <br/>
+
       <Button onClick={uploadImage} variant="outlined">
         Upload images
       </Button>
-
-      <Button variant="outlined">
-        Submit
-      </Button>
-
 
     </div>
 

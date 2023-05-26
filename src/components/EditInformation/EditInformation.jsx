@@ -26,7 +26,7 @@ function EditInformation() {
     const [name, setKitName] = useState(selectedKit.name);
     const [description, setKitDescription] = useState(selectedKit.description);
     const [backstory, setKitBackstory] = useState(selectedKit.backstory);
-    const [url, setKitUrl] = useState(selectedKit.url);
+    const [photo, setKitPhoto] = useState(selectedKit.photo);
     const [order, setKitOrder] = useState(selectedKit.order);
 
 
@@ -51,8 +51,8 @@ function EditInformation() {
         setKitBackstory(event.target.value);
     };
 
-    const handleUrlChange = (event) => {
-        setKitUrl(event.target.value);
+    const handlePhotoChange = (event) => {
+        setKitPhoto(event.target.value);
     };
 
     const handleOrderChange = (event) => {
@@ -63,7 +63,7 @@ function EditInformation() {
     const submitChanges = (event) => {
         event.preventDefault();
         dispatch({
-            type: 'EDIT_KIT', payload: { id, name, description, backstory, url, order }
+            type: 'EDIT_KIT', payload: { id, name, description, backstory, photo, order }
         })
         history.push('/editExisting');
     };
@@ -84,7 +84,7 @@ function EditInformation() {
         <>
             <h1> Edit Information </h1>
 
-            <img src={selectedKit.url} width='200' />
+            <img src={selectedKit.photo} width='200' />
 
             <br />
             <br />
@@ -129,7 +129,7 @@ function EditInformation() {
                 <TextField
                     label="URL"
                     defaultValue={selectedKit.url}
-                    onChange={handleUrlChange}
+                    onChange={handlePhotoChange}
                     rows="12"
                     required
                 />

@@ -4,11 +4,11 @@ const router = express.Router();
 
 //! SELECT all kit columns PLUS the first photo (list of kits)
 //SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIMIT 1) as "photo"  FROM "kit" as k;
-//? what I had query in GET `SELECT * FROM kit ORDER BY "order" ASC`
-
+//? what I had before for query in GET `SELECT * FROM kit ORDER BY "order" ASC`
+//TODO change photo to URL later
 //! Get 
 router.get('/', (req, res) => {
-  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIMIT 1) as "photo"  FROM "kit" as k;`;
+  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" ASC LIMIT 1) as "photo"  FROM "kit" as k;`;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
@@ -47,13 +47,13 @@ router.put('/edit', (req, res) => {
   // "name", "description", "backstory", "url", "order"
   // only included values I want to change
   let updateQuery = `UPDATE "kit" 
-        SET "name" = $1, "description" = $2, "backstory" = $3, "url" = $4, "order" = $5
+        SET "name" = $1, "description" = $2, "backstory" = $3, "photo" = $4, "order" = $5
         WHERE "id" = $6;`;
   pool.query(updateQuery,
     [updatedKit.name,
     updatedKit.description,
     updatedKit.backstory,
-    updatedKit.url,
+    updatedKit.photo,
     updatedKit.order,
     updatedKit.id
     ])

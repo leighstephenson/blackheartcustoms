@@ -1,12 +1,11 @@
-
 // Used to store photos 
-const photos = (state = [], action) => {
+const allPhotos = (state = [], action) => {
     switch (action.type) {
-        case 'SET_PHOTOS':
+        case 'SET_COVER_PHOTOS':
             return action.payload;
         default:
             return state;
     }
 };
 
-export default photos;
+export default allPhotos;

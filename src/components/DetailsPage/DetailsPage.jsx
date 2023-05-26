@@ -49,7 +49,7 @@ function DetailsPage() {
                     <br />
 
                     <Typography>
-                        <img src={selectedKit.url} />
+                        <img src={selectedKit.photo} />
                     </Typography>
 
                     <br />
