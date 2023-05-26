@@ -37,24 +37,30 @@ function EditInformation() {
 
 
     //! handleChange - need one for EACH value that can change. 
-    // kit: "name", "description", "backstory", "url", "order"
+    // kit: "name", "description", "backstory", "url"/"photo", "order"
+    
+    //! Name
     const handleNameChange = (event) => {
         setKitName(event.target.value);
         console.log(name);
     }
 
+    //! Description
     const handleDescriptionChange = (event) => {
         setKitDescription(event.target.value);
     };
 
+    //! Backstory
     const handleBackstoryChange = (event) => {
         setKitBackstory(event.target.value);
     };
 
+    //! Photo/URL
     const handlePhotoChange = (event) => {
         setKitPhoto(event.target.value);
     };
 
+    //! Order
     const handleOrderChange = (event) => {
         setKitOrder(event.target.value);
     };

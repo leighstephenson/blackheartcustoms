@@ -3,7 +3,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 //! get all kits from the DB
 function* fetchAllKits() {
-    console.log('are we here');
+    console.log('are we here in fetchAllKits?');
     try {
         const kit = yield axios.get('/api/kit');
         console.log('Get all:', kit.data);
@@ -18,7 +18,7 @@ function* fetchAllKits() {
 //! Fetch selected kit
 function* fetchSelectedKit(action) {
     try {
-        console.log(`Get this kit: ${action.payload}`);
+        console.log(`Got this kit, id = ${action.payload}`);
         const selectedKit = yield axios.get(`/api/kit/selected?id=${action.payload}`);
         yield put({ type: 'SET_SELECTED_KIT', payload: { selectedKit: selectedKit.data[0] } })
     } catch (error){

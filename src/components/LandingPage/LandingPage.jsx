@@ -30,17 +30,22 @@ function LandingPage() {
 
   //! Sets selected kit and brings user to details
   const kitSelection = (kit) => {
-    dispatch({ type: 'SET_SELECTED_KIT', payload: kit }
-    
+    dispatch(
+    { type: 'SET_SELECTED_KIT', payload: kit },
+    // { type: 'SET_SELECTED_PHOTO', payload: photos }
     );
     history.push('/details')
   };
-
 
   //! Fetch the list of kits
   useEffect(() => {
     dispatch({ type: 'FETCH_KITS' });
   }, []);
+
+  // //! Fetch the list of photos, not sure if I need this here yet
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_COVER_PHOTOS' });
+  // }, []);
 
   //TODO Edit all of this text
   //! What displays
@@ -73,7 +78,7 @@ function LandingPage() {
 
         <br />
         <br />
-        
+
         On this website you will find examples of custom work
         done by George and Leigh Stephenson.
 
@@ -98,15 +103,16 @@ function LandingPage() {
 
           {kits.map(kit => {
             return (
-              <Grid sx={{
-                display: 'block',
-                padding: 1,
-                marginBottom: 3,
-                width: "auto",
-                maxHeight: "auto",
-                textAlign: 'center',
-                boxShadow: 4,
-              }}>
+              <Grid key={kit.id}
+                sx={{
+                  display: 'block',
+                  padding: 1,
+                  marginBottom: 3,
+                  width: "auto",
+                  maxHeight: "auto",
+                  textAlign: 'center',
+                  boxShadow: 4,
+                }}>
 
                 <Card onClick={() => kitSelection(kit)}>
                   <h3> {kit.name} </h3>

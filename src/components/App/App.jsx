@@ -7,12 +7,10 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-
+import './App.css';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../Dashboard/Dashboard';
 import ContactPage from '../ContactPage/ContactPage';
@@ -21,7 +19,6 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import DetailsPage from '../DetailsPage/DetailsPage';
 import UploadImages from '../UploadImages/UploadImages';
-import './App.css';
 import EditExistingKit from '../EditExistingKit/EditExistingKit';
 import EditInformation from '../EditInformation/EditInformation';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
