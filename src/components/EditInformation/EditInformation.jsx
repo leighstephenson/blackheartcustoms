@@ -7,16 +7,17 @@ import TextField from '@mui/material/TextField';
 
 
 function EditInformation() {
+    //! Hooks
+    const dispatch = useDispatch();
+    const history = useHistory();
+    let { id } = useParams();
 
     //! Fetch selected kit
     useEffect(() => {
         dispatch({ type: 'FETCH_SELECTED_KIT', payload: id });
     }, []);
 
-    //! Hooks
-    const dispatch = useDispatch();
-    const history = useHistory();
-    let { id } = useParams();
+
 
     //! Stores our kits
     // const kits = useSelector(store => store.kits);
@@ -33,7 +34,6 @@ function EditInformation() {
     //! Back to dashboard
     const goBack = () => { history.push('/dashboard') }
     //TODO should I have the back button go back to dash or back to selection?
-    //TODO Still getting a 404 error
 
 
     //! handleChange - need one for EACH value that can change. 

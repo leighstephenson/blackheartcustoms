@@ -9,7 +9,6 @@ const s3Client = new aws.S3({
     region: process.env.AWS_REGION,
 });
 
-//Todo do I need to do another GET here?
 
 //!POST 
 router.post('/', async (req, res) => {
@@ -24,7 +23,7 @@ router.post('/', async (req, res) => {
             // ACL: 'public-read',
         }).promise()
         console.log(s3Res.Location);
-        const queryText = `INSERT INTO "photos" ("url","kit_id")
+        const queryText = `INSERT INTO "photos" ("url", "kit_id")
         VALUES ($1, $2)`;
         await pool.query(queryText, [s3Res.Location, imageProps.kitId])
         res.sendStatus(201)

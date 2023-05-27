@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Input from '@mui/material';
 
@@ -13,7 +13,7 @@ function UploadImages() {
   const [selectedFile, setSelectedFile] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
-
+  let { id } = useParams();
 
 
   //! Back to dashboard
@@ -31,13 +31,10 @@ function UploadImages() {
     }
   };
 
-  //TODO move this to saga if time allows
   //TODO kitId should be replaced by actual kit id
   const uploadImage = (event) => {
-    const fileName = encodeURIComponent(selectedFile.name);
-    const formData = new FormData();
-    formData.append('image', selectedFile);
-    axios.post(`api/photos?name=${fileName}&kitId=1`, formData);
+    dispatch ({type: 'UPLOAD_PHOTO', payload: {selectedFile:selectedFile, kitId: id}})
+  
   };
 
   //! What displays

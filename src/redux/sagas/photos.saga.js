@@ -2,6 +2,21 @@ import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
 
+//TODO need to get this working 
+    function * uploadPhoto(action){
+        console.log('Are we here in photos.saga?')
+        try {
+            const selectedFile= action.payload.selectedFile
+            const kitId= action.payload.kitId
+            const fileName = encodeURIComponent(selectedFile.name);
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+            yield axios.post(`api/photos?name=${fileName}&kitId=${kitId}`, formData);
+        } catch (error) {
+            console.log('Error in uploadPhoto in photos.saga')
+        }
+    }; // End uploadPhoto()
+
 //! Fetch cover photos for home page
 //TODO this needs some work..
 function* fetchCoverPhotos() {
@@ -16,10 +31,12 @@ function* fetchCoverPhotos() {
     }
 }; // End fetchCoverPhotos()
 
+
 //! Fetch selected kit's photos
 function* fetchSelectedPhotos(action) {
     try {
         console.log(`Get this photo: ${action.payload}`);
+        
         const selectedPhotos = yield axios.get(`/api/photos/selected?id=${action.payload}`);
         yield put({ type: 'SET_SELECTED_PHOTOS', payload: { selectedPhotos: selectedPhotos.data } })
     } catch (error){
@@ -28,12 +45,12 @@ function* fetchSelectedPhotos(action) {
 } // End fetchPhoto()
 
 
+
 //TODO add all the things ~
 function* photosSaga() {
      yield takeEvery('FETCH_COVER_PHOTOS', fetchCoverPhotos);
      yield takeEvery('FETCH_SELECTED_PHOTOS', fetchSelectedPhotos);
-
-
+     yield takeEvery('UPLOAD_PHOTO', uploadPhoto);
 
 }; //End photosSaga()
 
