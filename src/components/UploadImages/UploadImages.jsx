@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import './UploadImages.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 import { useHistory, useParams } from 'react-router-dom';
-import axios from 'axios';
-import Input from '@mui/material';
+// import axios from 'axios';
+import { Input } from '@mui/material';
 
 
 function UploadImages() {
@@ -13,7 +14,7 @@ function UploadImages() {
   const [selectedFile, setSelectedFile] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
-  let { id } = useParams();
+  const { id } = useParams();
 
 
   //! Back to dashboard
@@ -23,7 +24,7 @@ function UploadImages() {
 
   const onFileChange = (event) => {
     const fileToUpload = event.target.files[0];
-    const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+    const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png', 'image/jpg'];
     if (acceptedImageTypes.includes(fileToUpload.type)) {
       setSelectedFile(fileToUpload);
     } else {
@@ -31,36 +32,45 @@ function UploadImages() {
     }
   };
 
-  //TODO kitId should be replaced by actual kit id
+  //TODO kitId should be replaced by actual kit id- need to get this working
+  //! the id is returning as undefined, causing the 500 error cuz DB wants an integer
   const uploadImage = (event) => {
-    dispatch ({type: 'UPLOAD_PHOTO', payload: {selectedFile:selectedFile, kitId: id}})
-  
+    console.log(id);
+    dispatch({ type: 'UPLOAD_PHOTO', payload: { selectedFile: selectedFile, kitId: id} })
+
   };
 
   //! What displays
   return (
 
-    <div>
+    <center>
       <h2>{heading}</h2>
-      <Button variant="outlined" onClick={goBack}>
-        Back
-      </Button>
 
-      <br/>
+      <br />
+      <br />
 
-      <input
+      <Input
         type="file"
         accept="image/*"
         onChange={onFileChange}
       />
 
-      <br/>
+      <br />
+      <br />
 
-      <Button onClick={uploadImage} variant="outlined">
+      <Button onClick={uploadImage} variant="outlined"
+        sx={{
+          margin: 2,
+        }}>
         Upload images
       </Button>
 
-    </div>
+
+
+      <Button variant="outlined" onClick={goBack}>
+        Back
+      </Button>
+    </center>
 
   );
 }// End UploadImages()

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid } from '@mui/material';
+import { Card, Grid } from '@mui/material';
+import { Typography } from "@mui/material";
+import { Button } from '@mui/material';
+import './EditExistingKit.css';
 
 function EditExistingKit() {
 
@@ -9,8 +12,8 @@ function EditExistingKit() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-
-    //TODO Also need to add "back to dashboard" button later
+    //! Back to dashboard
+    const goBack = () => { history.push('/dashboard') }
 
     //! Stores our kits
     const kits = useSelector(store => store.kits);
@@ -30,7 +33,21 @@ function EditExistingKit() {
     //! What displays
     return (
         <>
-            <h1> Edit existing kit </h1>
+            <Typography variant="h4"
+                sx={{
+                    textAlign: 'center'
+                }}>
+                Edit existing kit
+            </Typography>
+
+            <br />
+            <br />
+
+            <center>
+                <Button variant="outlined" onClick={goBack}>
+                    Back
+                </Button>
+            </center>
 
             <div className="container">
 
@@ -45,13 +62,27 @@ function EditExistingKit() {
                                     width: 300,
                                     justifyContent: 'center',
                                 }}>
-                                    <div>
+                                    <Card
+                                        sx={{
+                                            textAlign: 'center',
+                                            padding: 1,
+                                            marginBottom: 2,
+                                        }}>
                                         <h3> {kit.name} </h3>
                                         <img src={kit.photo} alt={kit.name} />
-                                    </div>
-                                    <br />
 
-                                    <button onClick={() => kitSelectionToEdit(kit)}> Edit this kit </button>
+                                        <br />
+
+                                        <center>
+                                            <Button variant="outlined" onClick={() => kitSelectionToEdit(kit)}
+                                                sx={{
+                                                    display: 'block',
+                                                    alignContent: 'center',
+                                                }}>
+                                                Edit this kit
+                                            </Button>
+                                        </center>
+                                    </Card>
                                 </Grid>
                             );
                         })}

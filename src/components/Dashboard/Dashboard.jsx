@@ -21,6 +21,9 @@ function Dashboard() {
   //! Leads to edit existing kit
   const toEditExistingKit = () => { history.push('/editExisting') }
 
+  //! Leads to add new kit
+  const toAddNewKit = () => { history.push('/addNewKit') }
+
   //! What displays
   return (
     <div className="container">
@@ -28,6 +31,9 @@ function Dashboard() {
         <h2>Welcome, {user.username}!</h2>
         <p>Your ID is: {user.id}</p>
 
+        <button className="btn" onClick={toAddNewKit}> Add New Kit </button>
+        
+        <br /> <br/>
 
         <button className="btn" onClick={toUpload}> Upload Images </button>
 

@@ -21,6 +21,7 @@ import DetailsPage from '../DetailsPage/DetailsPage';
 import UploadImages from '../UploadImages/UploadImages';
 import EditExistingKit from '../EditExistingKit/EditExistingKit';
 import EditInformation from '../EditInformation/EditInformation';
+import AddNewKit from '../AddNewKit/AddNewKit';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 //! Theme for MUI styling
@@ -78,8 +79,13 @@ function App() {
               <UserPage />
             </ProtectedRoute>
 
+          //! Add New Kit
+            <ProtectedRoute exact path="/addNewKit">
+                <AddNewKit />
+            </ProtectedRoute>
+
           //! Upload Images
-            <ProtectedRoute exact path="/uploadImages">
+            <ProtectedRoute exact path="/uploadImages/:id">
               <UploadImages />
             </ProtectedRoute>
 

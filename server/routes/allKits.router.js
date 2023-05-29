@@ -3,12 +3,11 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 //! SELECT all kit columns PLUS the first photo (list of kits)
-//SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIMIT 1) as "photo"  FROM "kit" as k;
-//? what I had before for query in GET `SELECT * FROM kit ORDER BY "order" ASC`
 //TODO change photo to URL later
 //! Get 
 router.get('/', (req, res) => {
-  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" ASC LIMIT 1) as "photo"  FROM "kit" as k;`;
+ console.log('leigh')
+  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIMIT 1) as "photo"  FROM "kit" as k;`;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
@@ -31,12 +30,22 @@ router.get('/editInformation', (req, res) => {
   })
 });
 
-// /**
-//  * POST route template
-//  */
-// router.post('/', (req, res) => {
-//   // POST route code here
-// });
+//TODO need to manipulate the 1 to set the order 
+//! ADD a new kit
+router.post('/', (req, res) => {
+  console.log(req.body);
+  const insertKitQuery = `INSERT INTO "kit"
+  ("name", "description", "backstory", "user_id", "order") 
+  VALUES ($1, $2, $3, ${req.user.id}, 1) RETURNING "id";`
+
+pool.query(insertKitQuery, [req.body.kitName, req.body.description, req.body.backstory])
+.then (result => {
+  console.log ('Are we getting to the "add new" in kits router?');
+}).catch(error => {
+  console.log('Error in post on kits router', error);
+  res.sendStatus(500)
+})
+});
 
 
 //! PUT TO UPDATE 

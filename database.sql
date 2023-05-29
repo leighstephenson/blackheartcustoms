@@ -1,8 +1,3 @@
-
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
@@ -11,27 +6,27 @@ CREATE TABLE "user" (
 
 CREATE TABLE "kit" (
     "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR (200) NOT NULL,
-    "description" VARCHAR (5000) NOT NULL,
+    "name" VARCHAR (200),
+    "description" VARCHAR (5000),
     "backstory" VARCHAR (5000),
-    "user_id" INTEGER NOT NULL,
-    "order" INTEGER NOT NULL
+    "user_id" INTEGER,
+    "order" INTEGER
 );
 
 CREATE TABLE "photos" (
     "id" SERIAL PRIMARY KEY,
-    "kit_id" INTEGER NOT NULL,
+    "kit_id" INTEGER,
     "url" VARCHAR (5000) NOT NULL,
     "order" INTEGER DEFAULT 1
 );
 
 
 INSERT INTO "photos" ("kit_id", "url")
-VALUES (1, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com cyclops.png'),
+VALUES (1, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/cyclops.png'),
 (2, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/cotw.png'),
 (3, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/frank.png'),
 (4, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/bride.png'),
-(5, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/wolfman'),
+(5, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/wolfman.png'),
 (6, 'https://blackheartcustoms.s3.us-east-2.amazonaws.com/thing.png')
 ;
 

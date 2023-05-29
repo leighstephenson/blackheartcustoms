@@ -18,7 +18,8 @@ import { takeEvery, put } from 'redux-saga/effects';
     }; // End uploadPhoto()
 
 //! Fetch cover photos for home page
-//TODO this needs some work..
+//TODO not using either of these in component right now, getting photos from-
+//TODO -the kit router.
 function* fetchCoverPhotos() {
     console.log('we are here in fetchCoverPhotos');
     try {

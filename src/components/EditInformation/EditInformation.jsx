@@ -38,7 +38,7 @@ function EditInformation() {
 
     //! handleChange - need one for EACH value that can change. 
     // kit: "name", "description", "backstory", "url"/"photo", "order"
-    
+
     //! Name
     const handleNameChange = (event) => {
         setKitName(event.target.value);
@@ -90,112 +90,116 @@ function EditInformation() {
         <>
             <h1> Edit Information </h1>
 
-            <img src={selectedKit.photo} width='200' />
+            <div>
 
-            <br />
-            <br />
+                <img src={selectedKit.photo} width='200' />
+
+                <br />
+                <br />
 
 
 
-            {/*//! Form to input new Kit information  
+                {/*//! Form to input new Kit information  
             name, description, backstory, url, order */}
 
-            <form onSubmit={submitChanges} autoComplete="off">
+                <form onSubmit={submitChanges} autoComplete="off">
 
-                {/*//! Name Input */}
-                <TextField
-                    label="Name"
-                    defaultValue={selectedKit.name}
-                    onChange={handleNameChange}
-                    required
-                />
-                <br /><br />
+                    {/*//! Name Input */}
+                    <TextField
+                        label="Name"
+                        defaultValue={selectedKit.name}
+                        onChange={handleNameChange}
+                        required
+                    />
+                    <br /><br />
 
-                {/*//! Description Input */}
-                <TextField
-                    label="Description"
-                    defaultValue={selectedKit.description}
-                    onChange={handleDescriptionChange}
-                    rows="12"
-                    required
-                />
-                <br /><br />
+                    {/*//! Description Input */}
+                    <TextField
+                        label="Description"
+                        defaultValue={selectedKit.description}
+                        onChange={handleDescriptionChange}
+                        rows="12"
+                        required
+                    />
+                    <br /><br />
 
-                {/*//! Backstory Input */}
-                <TextField
-                    label="Character Backstory"
-                    defaultValue={selectedKit.backstory}
-                    onChange={handleBackstoryChange}
-                    rows="12"
+                    {/*//! Backstory Input */}
+                    <TextField
+                        label="Character Backstory"
+                        defaultValue={selectedKit.backstory}
+                        onChange={handleBackstoryChange}
+                        rows="12"
 
-                />
-                <br /><br />
+                    />
+                    <br /><br />
 
-                {/*//! Url Input */}
-                <TextField
-                    label="URL"
-                    defaultValue={selectedKit.url}
-                    onChange={handlePhotoChange}
-                    rows="12"
-                    required
-                />
-                <br /><br />
+                    {/*//! Url Input */}
+                    <TextField
+                        label="URL"
+                        defaultValue={selectedKit.url}
+                        onChange={handlePhotoChange}
+                        rows="12"
+                        required
+                    />
+                    <br /><br />
 
-                {/*//! Order Input */}
-                <TextField
-                    label="Order in Display"
-                    placeholder="Order"
-                    defaultValue={selectedKit.order}
+                    {/*//! Order Input */}
+                    <TextField
+                        label="Order in Display"
+                        placeholder="Order"
+                        defaultValue={selectedKit.order}
 
-                    required onChange={handleOrderChange}
-                />
-                <br /><br />
+                        required onChange={handleOrderChange}
+                    />
+                    <br /> 
+                    <br />
 
-                {/*//! Submit Button */}
-                <Button type="submit" variant="outlined"
-                    sx={{
-                        margin: 3,
-                        color: 'black',
-                        borderColor: 'black',
-                        backgroundColor: 'lightGrey',
-                        ':hover': {
-                            bgcolor: 'salmon',
-                        },
+                    {/*//! Submit Button */}
+                    <Button type="submit" variant="outlined"
+                        sx={{
+                            color: 'black',
+                            borderColor: 'black',
+                            backgroundColor: 'lightGrey',
+                            ':hover': {
+                                bgcolor: 'salmon',
+                            },
 
-                    }}>
-                    Submit
-                </Button>
+                        }}>
+                        Submit
+                    </Button>
 
-                <Button variant ="outlined" onClick={deleteKit}
-                    sx={{
-                        margin: 3,
-                        color: 'black',
-                        borderColor: 'black',
-                        backgroundColor: 'lightGrey',
-                        ':hover': {
-                            bgcolor: 'red',
-                        },
-                    }}
-                >
-                    Delete Kit
-                </Button>
+                    <Button variant="outlined" onClick={deleteKit}
+                        sx={{
+                            margin: 3,
+                            color: 'black',
+                            borderColor: 'black',
+                            backgroundColor: 'lightGrey',
+                            ':hover': {
+                                bgcolor: 'red',
+                            },
+                        }}
+                    >
+                        Delete Kit
+                    </Button>
+                
 
-                {/*//! Button to go back */}
-                <Button variant="outlined" onClick={goBack}
-                    sx={{
-                        margin: 3,
-                        color: 'black',
-                        borderColor: 'black',
-                        backgroundColor: 'lightGrey',
-                        ':hover': {
-                            bgcolor: 'salmon',
-                        },
+                    {/*//! Button to go back */}
+                    <Button variant="outlined" onClick={goBack}
+                        sx={{
+                            margin: 3,
+                            color: 'black',
+                            borderColor: 'black',
+                            backgroundColor: 'lightGrey',
+                            ':hover': {
+                                bgcolor: 'salmon',
+                            },
 
-                    }}>
-                    Go Back
-                </Button>
+                        }}>
+                        Go Back
+                    </Button>
 
-            </form>
+                </form>
+            </div>
 
         </>
     )

@@ -26,7 +26,7 @@ function LandingPage() {
 
   //! Stores our kits and photos?
   const kits = useSelector(store => store.kits);
-  const photos = useSelector(store => store.photos);
+  // const photos = useSelector(store => store.photos);
 
   //! Sets selected kit and brings user to details
   const kitSelection = (kit) => {
