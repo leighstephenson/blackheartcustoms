@@ -29,19 +29,16 @@ function Dashboard() {
     <div className="container">
       <center>
         <h2>Welcome, {user.username}!</h2>
-        <p>Your ID is: {user.id}</p>
 
-        <button className="btn" onClick={toAddNewKit}> Add New Kit </button>
+        <br />
         
-        <br /> <br/>
+        <button className="btn" onClick={toAddNewKit}> Add New Kit </button>
 
-        <button className="btn" onClick={toUpload}> Upload Images </button>
-
-        <br /> <br/>
+        <br /> <br />
 
         <button className="btn" onClick={toEditExistingKit}> Edit Existing Kit</button>
 
-        <br /> <br/>
+        <br /> <br />
 
         <LogOutButton className="btn" />
 

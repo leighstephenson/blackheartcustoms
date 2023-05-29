@@ -35,8 +35,9 @@ Button
   border-radius: 10px;
   background-color: #A8A900;
   color: black;
-  font-size: 1.1rem;
-  outline: 2;
+  font-size: 1rem;
+  font-weight: bolder;
+  outline: 1;
   outline-style: groove;
   outline-color: #d61010b7;
   cursor: pointer;

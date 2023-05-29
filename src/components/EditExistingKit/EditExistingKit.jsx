@@ -33,6 +33,7 @@ function EditExistingKit() {
     //! What displays
     return (
         <>
+        <br/>
             <Typography variant="h4"
                 sx={{
                     textAlign: 'center'
@@ -44,7 +45,13 @@ function EditExistingKit() {
             <br />
 
             <center>
-                <Button variant="outlined" onClick={goBack}>
+                <Button variant="outlined" onClick={goBack}
+                sx={{
+                    backgroundColor: '#a8a900',
+                    color: 'black',
+                    outlineColor: 'black',
+                    outline: 3,
+                }}>
                     Back
                 </Button>
             </center>

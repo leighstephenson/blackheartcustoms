@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { Typography } from '@mui/material';
 
 
 function EditInformation() {
@@ -88,9 +89,13 @@ function EditInformation() {
     //! What displays 
     return (
         <>
-            <h1> Edit Information </h1>
-
-            <div>
+            <br />
+            <Typography variant="h4"
+                sx={{ textAlign: 'center', }}>
+                Edit Information
+            </Typography>
+            <br />
+            <center>
 
                 <img src={selectedKit.photo} width='200' />
 
@@ -151,15 +156,15 @@ function EditInformation() {
 
                         required onChange={handleOrderChange}
                     />
-                    <br /> 
+                    <br />
                     <br />
 
                     {/*//! Submit Button */}
                     <Button type="submit" variant="outlined"
                         sx={{
-                            color: 'black',
+                            color: 'white',
                             borderColor: 'black',
-                            backgroundColor: 'lightGrey',
+                            backgroundColor: '#a8a900',
                             ':hover': {
                                 bgcolor: 'salmon',
                             },
@@ -168,9 +173,11 @@ function EditInformation() {
                         Submit
                     </Button>
 
+                    <br />
+
                     <Button variant="outlined" onClick={deleteKit}
                         sx={{
-                            margin: 3,
+                            margin: 2,
                             color: 'black',
                             borderColor: 'black',
                             backgroundColor: 'lightGrey',
@@ -181,12 +188,12 @@ function EditInformation() {
                     >
                         Delete Kit
                     </Button>
-                
+                    
+                    <br />
 
                     {/*//! Button to go back */}
                     <Button variant="outlined" onClick={goBack}
                         sx={{
-                            margin: 3,
                             color: 'black',
                             borderColor: 'black',
                             backgroundColor: 'lightGrey',
@@ -199,7 +206,7 @@ function EditInformation() {
                     </Button>
 
                 </form>
-            </div>
+            </center>
 
         </>
     )

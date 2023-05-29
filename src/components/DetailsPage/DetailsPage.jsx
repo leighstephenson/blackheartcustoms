@@ -5,6 +5,8 @@ import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
+import './DetailsPage.css';
+
 
 function DetailsPage() {
 
@@ -22,7 +24,7 @@ function DetailsPage() {
         <>
             <Card variant='outlined' sx={{
                 boxShadow: 10,
-                margin: 5,
+                margin: 1,
 
 
             }}>
@@ -67,6 +69,9 @@ function DetailsPage() {
 
                 </CardContent>
             </Card>
+
+            <br/>
+
             <center>
                 <Button variant="outlined" onClick={goBack}
                     sx={{
