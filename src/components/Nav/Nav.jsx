@@ -9,8 +9,6 @@ function Nav() {
 
   return (
     <>
-
-
       <div className="nav">
 
         <img src="/images/blackheartlogo.jpg"
@@ -20,7 +18,15 @@ function Nav() {
           <h2 className="nav-title">Black Heart Customs</h2>
         </Link>
 
-      </div>
+
+
+
+
+
+
+
+      </div> 
+      {/* end nav class */}
 
       {/* If no user is logged in, show these links */}
       <div className="navBar">
@@ -68,7 +74,7 @@ function Nav() {
             <Link className="navLink" to="/dashboard">
               Dashboard
             </Link>
-            
+
             <LogOutButton className="navLink" />
           </>
         )}

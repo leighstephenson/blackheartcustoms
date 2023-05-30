@@ -29,6 +29,7 @@ function* fetchSelectedKit(action) {
 
 
 //! Edit kit
+// This is not updating 
 function* editKit(action) {
     console.log(action.payload)
     try {

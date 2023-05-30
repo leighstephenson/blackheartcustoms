@@ -1,9 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './UploadImages.css';
-// import axios from 'axios';
+// import ProgressBar from '../ProgressBar/ProgressBar';
 import { Input } from '@mui/material';
 
 
@@ -17,7 +17,7 @@ function UploadImages() {
   let [myKits, setMyKits] = useState("")
 
   //! Hooks
-  const [heading, setHeading] = useState('Upload Images');
+  const [heading, setHeading] = useState('Upload Image');
   const [selectedFile, setSelectedFile] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
@@ -25,12 +25,14 @@ function UploadImages() {
 
   useEffect(() => {
     if (kits.length === 0) {
-      dispatch({ type: 'FETCH_KITS'})
+      dispatch({ type: 'FETCH_KITS' })
     } else {
       setMyKits(kits)
       setThisKit(kits[kits.length - 1])
+      console.log(thisKit)
+
     }
-  }, [kits]);
+  }, [kits, thisKit]);
 
 
   //! Back to dashboard
@@ -48,12 +50,10 @@ function UploadImages() {
     }
   };
 
-  //TODO kitId should be replaced by actual kit id- need to get this working
-  //! the id is returning as undefined, causing the 500 error cuz DB wants an integer
   const uploadImage = (event) => {
     console.log(id);
-    dispatch({ type: 'UPLOAD_PHOTO', payload: { selectedFile: selectedFile, kitId: id} });
-    history.push(`/dashboard`);
+    dispatch({ type: 'UPLOAD_PHOTO', payload: { selectedFile: selectedFile, kitId: id } });
+    history.push(`/success`);
 
 
   };
@@ -65,35 +65,40 @@ function UploadImages() {
         <>
           <h2>Loading</h2>
         </>
-			) : (
-      <center>
-        <h2 className="animate-character">{heading} for {thisKit.name}</h2>
+      ) : (
+        <center>
+          <br /> <br />
 
-        <br />
-        <br />
+          <Typography variant='h4'>{heading}</Typography>
 
-        <Input
-          type="file"
-          accept="image/*"
-          onChange={onFileChange}
-        />
+          <br /> <br />
 
-        <br />
-        <br />
+          <h3> Please choose an image for {thisKit.name}</h3>
+         
+          <br />
 
-        <Button onClick={uploadImage} variant="outlined"
-          sx={{
-            margin: 2,
-          }}>
-          Upload images
-        </Button>
+          <Input className='uploadInput'
+            type="file"
+            accept="image/*"
+            onChange={onFileChange}
+          />
 
-        <Button variant="outlined" onClick={goBack}>
-          Back
-        </Button>
-      </center>
-    )}
-  </>
+          <br />  <br /> <br />  <br />
+
+
+          <button className="btn" onClick={uploadImage}>
+            Upload
+          </button>
+
+          <br />
+          <br />
+
+          <button className="btn" onClick={goBack}>
+            Back
+          </button>
+        </center>
+      )}
+    </>
   );
 }// End UploadImages()
 

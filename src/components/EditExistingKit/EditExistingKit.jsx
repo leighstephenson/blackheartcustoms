@@ -35,25 +35,16 @@ function EditExistingKit() {
         <>
         <br/>
             <Typography variant="h4"
-                sx={{
-                    textAlign: 'center'
-                }}>
-                Edit existing kit
+                sx={{textAlign: 'center'}}>
+                Edit Existing Kit
             </Typography>
 
-            <br />
-            <br />
+            <br /> <br />
 
             <center>
-                <Button variant="outlined" onClick={goBack}
-                sx={{
-                    backgroundColor: '#a8a900',
-                    color: 'black',
-                    outlineColor: 'black',
-                    outline: 3,
-                }}>
+                <button className="btn" onClick={goBack}>
                     Back
-                </Button>
+                </button>
             </center>
 
             <div className="container">
@@ -74,6 +65,7 @@ function EditExistingKit() {
                                             textAlign: 'center',
                                             padding: 1,
                                             marginBottom: 2,
+                                            boxShadow: 5,
                                         }}>
                                         <h3> {kit.name} </h3>
                                         <img src={kit.photo} alt={kit.name} />
@@ -81,13 +73,13 @@ function EditExistingKit() {
                                         <br />
 
                                         <center>
-                                            <Button variant="outlined" onClick={() => kitSelectionToEdit(kit)}
+                                            <button className="edit-btn" onClick={() => kitSelectionToEdit(kit)}
                                                 sx={{
                                                     display: 'block',
                                                     alignContent: 'center',
                                                 }}>
                                                 Edit this kit
-                                            </Button>
+                                            </button>
                                         </center>
                                     </Card>
                                 </Grid>

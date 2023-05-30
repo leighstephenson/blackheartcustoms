@@ -73,19 +73,10 @@ function DetailsPage() {
             <br/>
 
             <center>
-                <Button variant="outlined" onClick={goBack}
-                    sx={{
-                        justifyContent: "center",
-                        color: 'black',
-                        borderColor: 'black',
-                        borderWidth: 2,
-                        backgroundColor: '#A8A900',
-                        ':hover': {
-                            bgcolor: '#C21916',
-                        },
-                    }}>
-                    Go Back
-                </Button>
+                <button className="btn" variant="outlined" onClick={goBack}>
+                  
+                    Back
+                </button>
             </center>
 
 

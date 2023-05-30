@@ -2,10 +2,9 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import './Dashboard.css';
+import { Typography } from '@mui/material';
 
-
-//! This will be turned into my dashboard
-//todo need to build the rest of my pages and the functions to push there
 
 function Dashboard() {
 
@@ -15,7 +14,7 @@ function Dashboard() {
   const user = useSelector((store) => store.user);
 
   //! Leads to upload images
-  const toUpload = () => { history.push('/uploadImages') }
+  // const toUpload = () => { history.push('/uploadImages') }
 
 
   //! Leads to edit existing kit
@@ -28,10 +27,12 @@ function Dashboard() {
   return (
     <div className="container">
       <center>
-        <h2>Welcome, {user.username}!</h2>
-
+        <Typography variant='h3'>  Dashboard </Typography>
         <br />
-        
+        <h3 >Welcome, {user.username}!</h3>
+
+        <br /> <br />
+
         <button className="btn" onClick={toAddNewKit}> Add New Kit </button>
 
         <br /> <br />

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
+import { Card } from '@mui/material';
 
 
 function EditInformation() {
@@ -34,7 +35,6 @@ function EditInformation() {
 
     //! Back to dashboard
     const goBack = () => { history.push('/dashboard') }
-    //TODO should I have the back button go back to dash or back to selection?
 
 
     //! handleChange - need one for EACH value that can change. 
@@ -69,6 +69,7 @@ function EditInformation() {
     //! Submit
     const submitChanges = (event) => {
         event.preventDefault();
+        console.log('dispatching the submit')
         dispatch({
             type: 'EDIT_KIT', payload: { id, name, description, backstory, photo, order }
         })
@@ -97,8 +98,16 @@ function EditInformation() {
             <br />
             <center>
 
-                <img src={selectedKit.photo} width='200' />
-
+                <Card sx={{ 
+                    width: 300, 
+                    padding: 2, 
+                    outline: 5, 
+                    outlineColor: 'black',
+                    boxShadow: 4,
+                    
+                    }}>
+                    <img src={selectedKit.photo} />
+                </Card>
                 <br />
                 <br />
 
@@ -116,7 +125,7 @@ function EditInformation() {
                         onChange={handleNameChange}
                         required
                     />
-                    <br /><br />
+                    <br /> <br />
 
                     {/*//! Description Input */}
                     <TextField
@@ -126,7 +135,7 @@ function EditInformation() {
                         rows="12"
                         required
                     />
-                    <br /><br />
+                    <br /> <br />
 
                     {/*//! Backstory Input */}
                     <TextField
@@ -136,75 +145,46 @@ function EditInformation() {
                         rows="12"
 
                     />
-                    <br /><br />
+                    <br /> <br />
 
                     {/*//! Url Input */}
                     <TextField
                         label="URL"
-                        defaultValue={selectedKit.url}
+                        defaultValue={selectedKit.photo}
                         onChange={handlePhotoChange}
                         rows="12"
-                        required
+                        
                     />
-                    <br /><br />
+                    <br /> <br />
 
                     {/*//! Order Input */}
                     <TextField
-                        label="Order in Display"
+                        label="Order on Home Page"
                         placeholder="Order"
                         defaultValue={selectedKit.order}
 
-                        required onChange={handleOrderChange}
-                    />
-                    <br />
-                    <br />
+                        required onChange={handleOrderChange} />
+
+                    <br /> <br /> <br />
 
                     {/*//! Submit Button */}
-                    <Button type="submit" variant="outlined"
-                        sx={{
-                            color: 'white',
-                            borderColor: 'black',
-                            backgroundColor: '#a8a900',
-                            ':hover': {
-                                bgcolor: 'salmon',
-                            },
-
-                        }}>
+                    <button className="btn" variant="outlined">
                         Submit
-                    </Button>
+                    </button>
 
-                    <br />
+                    <br /> <br />
 
-                    <Button variant="outlined" onClick={deleteKit}
-                        sx={{
-                            margin: 2,
-                            color: 'black',
-                            borderColor: 'black',
-                            backgroundColor: 'lightGrey',
-                            ':hover': {
-                                bgcolor: 'red',
-                            },
-                        }}
-                    >
+                    <button className='btn' onClick={deleteKit}>
                         Delete Kit
-                    </Button>
-                    
-                    <br />
+
+                    </button>
+
+                    <br /> <br />
 
                     {/*//! Button to go back */}
-                    <Button variant="outlined" onClick={goBack}
-                        sx={{
-                            color: 'black',
-                            borderColor: 'black',
-                            backgroundColor: 'lightGrey',
-                            ':hover': {
-                                bgcolor: 'salmon',
-                            },
-
-                        }}>
+                    <button className="btn" onClick={goBack}>
                         Go Back
-                    </Button>
-
+                    </button>
                 </form>
             </center>
 

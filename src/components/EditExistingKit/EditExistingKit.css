@@ -2,3 +2,17 @@
 h1 {
     text-align: center;
 }
+
+
+.edit-btn {
+    display: inline-block;
+    padding: 5px 5px;
+    border-color: black;
+    border-width: 2px 1px 3px;
+    border-radius: 6px;
+    background-color: #A8A900;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }

@@ -31,6 +31,8 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  display: inline-block;
+  
 
 
   /* these last two make the logout button in

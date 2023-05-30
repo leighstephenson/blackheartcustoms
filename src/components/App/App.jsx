@@ -22,6 +22,7 @@ import UploadImages from '../UploadImages/UploadImages';
 import EditExistingKit from '../EditExistingKit/EditExistingKit';
 import EditInformation from '../EditInformation/EditInformation';
 import AddNewKit from '../AddNewKit/AddNewKit';
+import SuccessPage from '../SuccessPage/SuccessPage';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 //! Theme for MUI styling
@@ -73,7 +74,7 @@ function App() {
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
 
           //! user / dashboard
-            {/* logged in shows UserPage else shows LoginPage */}
+            {/* logged in shows Dashboard else shows LoginPage */}
             {/*todo will be changing to dashboard */}
             <ProtectedRoute exact path="/dashboard">
               <UserPage />
@@ -81,7 +82,7 @@ function App() {
 
           //! Add New Kit
             <ProtectedRoute exact path="/addNewKit">
-                <AddNewKit />
+              <AddNewKit />
             </ProtectedRoute>
 
           //! Upload Images
@@ -102,6 +103,11 @@ function App() {
         //! contact
             <Route exact path="/contact">
               <ContactPage />
+            </Route>
+
+        //! Success
+            <Route exact path="/success">
+              <SuccessPage />
             </Route>
 
           //! login

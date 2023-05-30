@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+// import ProgressBar from '../ProgressBar/ProgressBar';
 
 function AddNewKit() {
 
@@ -72,12 +73,15 @@ function AddNewKit() {
                             textAlign: 'center',
 
                         }}>
-                        Add Info For New Kit
+                        Add New Kit
                     </Typography>
                     <br />
                     <br />
 
                     <center>
+
+                        <Typography> Please add information: </Typography>
+                        <br />
                         <form onSubmit={addNewKit} autoComplete="off">
 
                             {/*//! Name Input */}
@@ -109,38 +113,20 @@ function AddNewKit() {
                             <br />
 
                             {/*//! Submit Button */}
-                            <Button type="submit" variant="outlined"
-                                sx={{
-                                    color: 'black',
-                                    borderColor: 'black',
-                                    backgroundColor: 'lightGrey',
-                                    ':hover': {
-                                        bgcolor: 'salmon',
-                                    },
-
-                                }}>
+                            <button className="btn" type="submit">
                                 Submit
-                            </Button>
+                            </button>
 
                         </form>
                     </center>
-                    
-                    <br/>
+
+                    <br />
 
                     <center>
-                    {/*//! Button to go back */}
-                    <Button variant="outlined" onClick={goBack}
-                        sx={{
-                            color: 'black',
-                            borderColor: 'black',
-                            backgroundColor: 'lightGrey',
-                            ':hover': {
-                                bgcolor: 'salmon',
-                            },
-
-                        }}>
-                        Go Back
-                    </Button>
+                        {/*//! Button to go back */}
+                        <button className="btn" onClick={goBack}>
+                            Go Back
+                        </button>
                     </center>
                 </>
             )}

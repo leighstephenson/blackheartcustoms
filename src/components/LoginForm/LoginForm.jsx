@@ -43,6 +43,8 @@ function LoginForm() {
         </h3>
       )}
 
+<center>
+
       <div>
         <label htmlFor="username">
           Username:
@@ -69,8 +71,8 @@ function LoginForm() {
         </label>
       </div>
 
-      <center>
         <input className="btn" type="submit" name="submit" value="Log In" />
+     
       </center>
 
     </form>

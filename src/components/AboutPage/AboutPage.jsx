@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import "./AboutPage.css";
 
-//TODO Add photo 
+//TODO Add photos, QR code for black heart and for me 
 //TODO Maybe add more history on garage kit hobby
 
 function AboutPage() {
@@ -49,6 +49,12 @@ function AboutPage() {
           business that my dad has built and will take every opportunity to support it. 
         </Typography>
 
+          <Typography>
+            Technologies used:
+            
+
+            Future developments:
+          </Typography>
       </div>
     </div>
   );

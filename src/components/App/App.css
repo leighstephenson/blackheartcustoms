@@ -29,14 +29,14 @@ Button
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-color: black;
-  border-width: 2px 1px 5px;
-  border-radius: 10px;
+  border-width: 2px 1px 3px;
+  border-radius: 6px;
   background-color: #A8A900;
   color: black;
   font-size: 1rem;
-  font-weight: bolder;
+  font-weight: bold;
   outline: 1;
   outline-style: groove;
   outline-color: #d61010b7;
