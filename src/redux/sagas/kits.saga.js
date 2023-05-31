@@ -2,7 +2,6 @@ import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
 //! get all kits from the DB
-//todo getting an error here
 function* fetchAllKits() {
     console.log('are we here in fetchAllKits?');
     try {
@@ -20,7 +19,7 @@ function* fetchAllKits() {
 function* fetchSelectedKit(action) {
     try {
         console.log(`Got this kit, id = ${action.payload}`);
-        const selectedKit = yield axios.get(`/api/kit/selected?id=${action.payload}`);
+        const selectedKit = yield axios.get(`/api/kit/selected/${action.payload}`);
         yield put({ type: 'SET_SELECTED_KIT', payload: { selectedKit: selectedKit.data[0] } })
     } catch (error) {
         console.log(`Error in fetchSelectedKit in saga ${error}`)
@@ -29,9 +28,9 @@ function* fetchSelectedKit(action) {
 
 
 //! Edit kit
-// This is not updating 
+// This is not updating for some reason
 function* editKit(action) {
-    console.log(action.payload)
+    console.log('here', action.payload)
     try {
         yield axios.put(`/api/kit/edit`, action.payload);
         yield put({ type: 'FETCH_KITS' });

@@ -17,7 +17,7 @@ function DetailsPage() {
     const selectedKit = useSelector((store) => store.selectedKit);
 
     //! Leads back to home
-    const goBack = () => { history.push('/') }
+    const goBack = () => { history.goBack() }
 
     //! What displays
     return (
@@ -56,25 +56,31 @@ function DetailsPage() {
 
                     <br />
 
+                    <Typography sx={{ }}>
+                        Description:
+                    </Typography>
+
                     <Typography>
                         {selectedKit.description}
                     </Typography>
 
                     <br />
+                    <Typography sx={{ }}>
+                        Backstory:
+                    </Typography>
 
                     <Typography>
-                        {selectedKit.backstory}
+                        Character Backstory: {selectedKit.backstory}
                     </Typography>
 
 
                 </CardContent>
             </Card>
 
-            <br/>
+            <br />
 
             <center>
                 <button className="btn" variant="outlined" onClick={goBack}>
-                  
                     Back
                 </button>
             </center>

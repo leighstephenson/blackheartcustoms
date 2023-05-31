@@ -1,31 +1,27 @@
-.animate-character {
-    text-transform: uppercase;
-    background-image: linear-gradient(
-    -225deg,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 90%,
-    #ff1361 67%,
-    #44107a 30%,
-
-
+.animate-character-on-dash {
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    0deg,
+    #231557 0%,
+    #000000 29%,
+    #ff0707 67%,
+    #fff800 100%
   );
-
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
-    color: #fff;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 4s linear infinite;
-    display: inline-block;
-    font-size: 30px;
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 4s linear infinite;
+  display: inline-block;
+      font-size: 30px;
 }
 
 @keyframes textclip {
-    to {
-        background-position: 200% center;
-    }
+  to {
+    background-position: 200% center;
+  }
 }

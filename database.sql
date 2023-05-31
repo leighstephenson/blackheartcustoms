@@ -54,3 +54,7 @@ SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" LIM
 
 -- SELECT all photos for a kit (kit detail page)
 SELECT * FROM "photos" WHERE "kit_id" = 1 ORDER BY "order";
+
+-- Use this to login
+INSERT INTO "user" ("username", "password")
+VALUES ('admin','$2a$10$IqB5S9f3YKQQcHZbfezd2OPSV0B0hoV.QoeSKRBD4g3uA.iyi7uD2');

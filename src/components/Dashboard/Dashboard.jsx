@@ -29,7 +29,7 @@ function Dashboard() {
       <center>
         <Typography variant='h3'>  Dashboard </Typography>
         <br />
-        <h3 >Welcome, {user.username}!</h3>
+        <h3 className='animate-character-on-dash' >Welcome, {user.username}!</h3>
 
         <br /> <br />
 

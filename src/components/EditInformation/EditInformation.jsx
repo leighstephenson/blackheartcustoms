@@ -20,7 +20,6 @@ function EditInformation() {
     }, []);
 
 
-
     //! Stores our kits
     // const kits = useSelector(store => store.kits);
     const selectedKit = useSelector((store) => store.selectedKit);
@@ -38,7 +37,7 @@ function EditInformation() {
 
 
     //! handleChange - need one for EACH value that can change. 
-    // kit: "name", "description", "backstory", "url"/"photo", "order"
+    // values in kit: "name", "description", "backstory", "url"/"photo", "order"
 
     //! Name
     const handleNameChange = (event) => {
@@ -75,7 +74,6 @@ function EditInformation() {
         })
         history.push('/editExisting');
     };
-    //TODO maybe add a progress bar and success page for a stretch??
 
 
     //! Deletes a kit from the database
@@ -162,7 +160,6 @@ function EditInformation() {
                         label="Order on Home Page"
                         placeholder="Order"
                         defaultValue={selectedKit.order}
-
                         required onChange={handleOrderChange} />
 
                     <br /> <br /> <br />
