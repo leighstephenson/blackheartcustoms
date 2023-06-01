@@ -6,11 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // import ProgressBar from '../ProgressBar/ProgressBar';
 
-  //? having an issue on this component..
-    // I'm storing the "last"/most recent kit and the list of all kits, but when uploading an image
-    // I am receiving the 2nd most recent kit ID instead of the newest, so my new 
-    // upload is being added to the wrong kit. The lastKit is being set on page load,
-    // so may need to update that on the next page, uploadImage
+//? having an issue on this component..
+// I'm storing the "last"/most recent kit and the list of all kits, but when uploading an image
+// I am receiving the 2nd most recent kit ID instead of the newest, so my new 
+// upload is being added to the wrong kit. The lastKit is being set on page load, not on submit..
 
 function AddNewKit() {
 
@@ -26,6 +25,7 @@ function AddNewKit() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    //! Use effect, sets [allKits] and {lastKit}
     useEffect(() => {
         if (kits.length === 0) {
             dispatch({ type: 'FETCH_KITS' })
@@ -62,7 +62,7 @@ function AddNewKit() {
         event.preventDefault();
         dispatch({ type: 'ADD_NEW_KIT', payload: newKit, setNewKit: setNewKit });
         setNewKit({ kitName: '', description: '', backstory: '' });
-        console.log('Checking lastKit', lastKit)
+        console.log('lastKit on AddNew', lastKit)
         history.push(`/uploadImages/${lastKit.id}`)
     }
 
