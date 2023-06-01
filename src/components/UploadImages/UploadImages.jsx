@@ -12,6 +12,7 @@ function UploadImages() {
   //! Stores our kits
   let kits = useSelector(store => store.kits);
 
+
   //! States
   let [thisKit, setThisKit] = useState({})
   let [myKits, setMyKits] = useState("")
@@ -51,7 +52,10 @@ function UploadImages() {
   };
 
   const uploadImage = (event) => {
-    console.log(id);
+    console.log('uploaded id',id);
+    console.log('this kit', thisKit);
+    console.log('myKits', myKits);
+
     dispatch({ type: 'UPLOAD_PHOTO', payload: { selectedFile: selectedFile, kitId: id } });
     history.push(`/success`);
 

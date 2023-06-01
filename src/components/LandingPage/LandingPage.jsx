@@ -67,7 +67,7 @@ function LandingPage() {
         }}>
         Black Heart Models is a family-owned business that specializes in
         busts and wall-hangers of a variety of sci-fi, horror,
-        and fantasty subjects.
+        and fantasy subjects.
 
         <br />
         <br />

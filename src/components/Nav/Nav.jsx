@@ -18,13 +18,6 @@ function Nav() {
           <h2 className="nav-title">Black Heart Customs</h2>
         </Link>
 
-
-
-
-
-
-
-
       </div> 
       {/* end nav class */}
 
@@ -41,7 +34,7 @@ function Nav() {
               </Link>
 
               <Link className="navLink" to="/about">
-                About
+                About 
               </Link>
 
               <Link className="navLink" to="/contact">

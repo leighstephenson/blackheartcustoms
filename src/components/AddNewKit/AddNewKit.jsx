@@ -6,6 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // import ProgressBar from '../ProgressBar/ProgressBar';
 
+  //? having an issue on this component..
+    // I'm storing the "last"/most recent kit and the list of all kits, but when uploading an image
+    // I am receiving the 2nd most recent kit ID instead of the newest, so my new 
+    // upload is being added to the wrong kit. The lastKit is being set on page load,
+    // so may need to update that on the next page, uploadImage
+
 function AddNewKit() {
 
     //! Stores our kits
@@ -13,8 +19,8 @@ function AddNewKit() {
 
     //! States
     let [newKit, setNewKit] = useState({ kitName: '', description: '', backstory: '' })
-    let [allKits, setAllKits] = useState([])
     let [lastKit, setLastKit] = useState({})
+    let [allKits, setAllKits] = useState([])
 
     //! Hooks
     const dispatch = useDispatch();
@@ -25,7 +31,9 @@ function AddNewKit() {
             dispatch({ type: 'FETCH_KITS' })
         } else {
             setAllKits(kits)
+            console.log('allKits', allKits)
             setLastKit(kits[kits.length - 1])
+            console.log('lastKit', lastKit);
         }
     }, [kits]);
 
@@ -48,11 +56,13 @@ function AddNewKit() {
     //! Back to dashboard
     const goBack = () => { history.push('/dashboard') };
 
+    // Something may be out of order here?
     //! ADD/SUBMIT
     const addNewKit = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_NEW_KIT', payload: newKit, setNewKit: setNewKit });
         setNewKit({ kitName: '', description: '', backstory: '' });
+        console.log('Checking lastKit', lastKit)
         history.push(`/uploadImages/${lastKit.id}`)
     }
 
@@ -75,8 +85,7 @@ function AddNewKit() {
                         }}>
                         Add New Kit
                     </Typography>
-                    <br />
-                    <br />
+                    <br /> <br />
 
                     <center>
 
@@ -90,7 +99,7 @@ function AddNewKit() {
                                 onChange={handleNameChange}
                                 required
                             />
-                            <br /><br />
+                            <br /> <br />
 
                             {/*//! Description Input */}
                             <TextField
@@ -99,7 +108,7 @@ function AddNewKit() {
                                 rows="12"
                                 required
                             />
-                            <br /><br />
+                            <br /> <br />
 
                             {/*//! Backstory Input */}
                             <TextField
@@ -109,8 +118,7 @@ function AddNewKit() {
 
                             />
 
-                            <br />
-                            <br />
+                            <br /> <br />
 
                             {/*//! Submit Button */}
                             <button className="btn" type="submit">

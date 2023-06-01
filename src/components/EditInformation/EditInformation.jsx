@@ -33,7 +33,7 @@ function EditInformation() {
 
 
     //! Back to dashboard
-    const goBack = () => { history.push('/dashboard') }
+    const goBack = () => { history.goBack() }
 
 
     //! handleChange - need one for EACH value that can change. 

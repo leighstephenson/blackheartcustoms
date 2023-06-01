@@ -26,10 +26,22 @@ Things to start with:
 I have all my pages and components built, only big thing left for CRUD functionality is to implement the AWS S3 bucket for adding and storing images. After that: styling, finishing adding content, and stretch goals.
 
 Things to do for base mode:
-✅-Implement AWS
-✅-Rework my code to include "photos" table
+-Implement AWS
+-Rework my code to include "photos" table
 -Fix navigation styling
 -Add content to contact page
 -STYLE
 -Add social media links to footer too
+
+5/30/23~
+
+Only real issue that I'm still having, is that my uploaded images are going to the 2nd to last addition to the database, not the last. 
+
+List of more stuff to do:
+-Complete styling, finalize nav styling
+-Fix image upload issue
+-Add photos/more content to about and contact page
+-Finish adding kit info to database, add any additional photos
+-Add icons to some buttons maybe?
+-Swap history.push for history.goBack on all back buttons
 

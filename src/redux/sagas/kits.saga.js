@@ -28,7 +28,6 @@ function* fetchSelectedKit(action) {
 
 
 //! Edit kit
-// This is not updating for some reason
 function* editKit(action) {
     console.log('here', action.payload)
     try {
@@ -42,7 +41,7 @@ function* editKit(action) {
 //! ADD new kit
 function* addNewKit(action) {
     try {        
-        console.log('leigh', action.payload);
+        console.log('addNew action payload', action.payload);
         yield axios.post('/api/kit', action.payload);
         yield put({ type: 'FETCH_KITS' });
     } catch (error) {
