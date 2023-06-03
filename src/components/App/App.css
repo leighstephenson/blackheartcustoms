@@ -71,13 +71,16 @@ Button
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: grey;
+  outline-color: white;
+  padding: 5px 10px;
+
 }
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: red;
+  color: #A8A900;
 }
 
 /* --------------------------------------------------------------------------------

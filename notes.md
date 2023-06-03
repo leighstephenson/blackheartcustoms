@@ -44,4 +44,5 @@ List of more stuff to do:
 -Finish adding kit info to database, add any additional photos
 -Add icons to some buttons maybe?
 -Swap history.push for history.goBack on all back buttons
-
+-Differentiate "delete kit" button- make red or something to stand out 
+-progress bar for adding a new kit maybe? 

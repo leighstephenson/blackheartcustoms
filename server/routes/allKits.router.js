@@ -52,7 +52,7 @@ router.put('/edit', (req, res) => {
   console.log('In PUT request', req.body);
   let updatedKit = req.body;
   // Query to update kit
-  // "name", "description", "backstory", "url", "order"
+  // "name", "description", "backstory", "order"
   // only included values I want to change
   let updateQuery = `UPDATE "kit" 
         SET "name" = $1, "description" = $2, "backstory" = $3, "order" = $4

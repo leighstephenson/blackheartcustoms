@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import { Typography } from '@mui/material';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -18,7 +19,7 @@ function Nav() {
           <h2 className="nav-title">Black Heart Customs</h2>
         </Link>
 
-      </div> 
+      </div>
       {/* end nav class */}
 
       {/* If no user is logged in, show these links */}
@@ -34,7 +35,7 @@ function Nav() {
               </Link>
 
               <Link className="navLink" to="/about">
-                About 
+                About
               </Link>
 
               <Link className="navLink" to="/contact">
