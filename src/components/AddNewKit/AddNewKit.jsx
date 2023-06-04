@@ -95,7 +95,7 @@ function AddNewKit() {
 
                             {/*//! Name Input */}
                             <TextField
-                                label="Name"
+                                label for="Name"
                                 onChange={handleNameChange}
                                 required
                             />
@@ -103,7 +103,7 @@ function AddNewKit() {
 
                             {/*//! Description Input */}
                             <TextField
-                                label="Description"
+                                label for="Description"
                                 onChange={handleDescriptionChange}
                                 rows="12"
                                 required
@@ -112,7 +112,7 @@ function AddNewKit() {
 
                             {/*//! Backstory Input */}
                             <TextField
-                                label="Character Backstory"
+                                label for="Character Backstory"
                                 onChange={handleBackstoryChange}
                                 rows="12"
 

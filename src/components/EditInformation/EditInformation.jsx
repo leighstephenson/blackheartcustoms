@@ -118,7 +118,7 @@ function EditInformation() {
 
                     {/*//! Name Input */}
                     <TextField
-                        label="Name"
+                        label for="Name"
                         defaultValue={selectedKit.name}
                         onChange={handleNameChange}
                         required
@@ -127,7 +127,7 @@ function EditInformation() {
 
                     {/*//! Description Input */}
                     <TextField
-                        label="Description"
+                        label for="Description"
                         defaultValue={selectedKit.description}
                         onChange={handleDescriptionChange}
                         rows="12"
@@ -137,7 +137,7 @@ function EditInformation() {
 
                     {/*//! Backstory Input */}
                     <TextField
-                        label="Character Backstory"
+                        label for="Character Backstory"
                         defaultValue={selectedKit.backstory}
                         onChange={handleBackstoryChange}
                         rows="12"
@@ -147,7 +147,7 @@ function EditInformation() {
 
                     {/*//! Url Input */}
                     <TextField
-                        label="URL"
+                        label for="URL"
                         defaultValue={selectedKit.photo}
                         onChange={handlePhotoChange}
                         rows="12"
@@ -157,7 +157,7 @@ function EditInformation() {
 
                     {/*//! Order Input */}
                     <TextField
-                        label="Order on Home Page"
+                        label for="Order on Home Page"
                         placeholder="Order"
                         defaultValue={selectedKit.order}
                         required onChange={handleOrderChange} />

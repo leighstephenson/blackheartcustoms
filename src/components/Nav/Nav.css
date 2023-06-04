@@ -49,13 +49,13 @@
   outline: 0;
 }
 
-/* .navLink:hover {
-  color: #a8a900;
-} */
-
-.active {
+.navLink:hover {
   color: #a8a900;
 }
+
+/* .active {
+  color: #a8a900;
+} */
 
 .lineBreak {
   color: #a8a900;

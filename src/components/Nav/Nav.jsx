@@ -42,7 +42,7 @@ function Nav() {
                 Contact
               </Link>
 
-              <Link className="navLink" activeClassName="active" to="/login">
+              <Link className="navLink" to="/login">
                 Login
               </Link>
             </>
