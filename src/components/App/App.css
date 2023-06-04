@@ -43,6 +43,22 @@ Button
   cursor: pointer;
 }
 
+.delete-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border-color: black;
+  border-width: 2px 1px 3px;
+  border-radius: 6px;
+  background-color: rgb(212, 37, 37);
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: 1;
+  outline-style: groove;
+  outline-color: #d61010b7;
+  cursor: pointer;
+}
+
 .btn_sizeMin {
   min-height: 50px;
   min-width: 100px;

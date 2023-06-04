@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import './DetailsPage.css';
 
 
@@ -15,6 +14,11 @@ function DetailsPage() {
 
     //! Stores our selected kit
     const selectedKit = useSelector((store) => store.selectedKit);
+
+    //! Use effect to make the page load to the TOP of the page.
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     //! Leads back to home
     const goBack = () => { history.goBack() }

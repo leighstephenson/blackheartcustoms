@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Link } from '@mui/material';
 import './ContactPage.css';
 
 
@@ -16,33 +16,44 @@ function ContactPage() {
 
       <br />
 
+      {/* Contact info */}
       <Typography>
 
         The best place to reach us is via email at Goblackheart@comcast.NET
 
-        <br />
-        <br />
+        <br /> <br />
 
         Serious inquiries only please, it takes a considerable amount of time to
         provide quotes on painting and shipping costs.
 
       </Typography>
+      <br />
+
+      {/* Opens Black Heart's LinkTree in a new tab */}
+      <center>
+        <a href={"https://linktr.ee/blackheartmodels"} target="_blank"> Visit our Linktree for all things Black Heart</a>
+      </center>
+      
+      <br /> <br />
+      <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
+
+      <br /> <hr />
+      {/* Commission info */}
+      <Typography variant="h5" sx={{ textAlign: 'center' }}> Commission process: </Typography>
 
       <br />
-      <hr />
 
-      <Typography variant="h5"> Commission process: </Typography>
-      
-      <br/>
-      
-      <Typography> If hiring us for a project, you can make any request and we will do our best to fulfill it.
+      <Typography> If hiring us for a project, we will do our best to fulfill every request.
         We will provide in-progress photos for approval and make changes as needed.
 
-        <br />
-        <br />
+        <br /> <br />
 
         Every kit is airbrushed and hand-painted, we spend several hours on each piece
         to ensure that you are proud to display our work.
+
+        <br /> <br />
+
+        Please email us if you have any questions. Thank you!
       </Typography>
 
     </div>

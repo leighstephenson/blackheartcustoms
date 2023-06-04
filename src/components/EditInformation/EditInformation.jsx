@@ -171,7 +171,8 @@ function EditInformation() {
 
                     <br /> <br />
 
-                    <button className='btn' onClick={deleteKit}>
+                    {/*//! Button to delete kit */}
+                    <button className='delete-btn' onClick={deleteKit}>
                         Delete Kit
 
                     </button>

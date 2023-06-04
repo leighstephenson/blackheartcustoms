@@ -16,8 +16,7 @@ function AboutPage() {
           About
         </Typography>
 
-        <br />
-        <br />
+        <br /> <br />
 
         <Typography>
           Black Heart Models is a division of Black Heart
@@ -28,33 +27,52 @@ function AboutPage() {
           fans of beautiful, spooky, fantastic, and/or weird stuff.
           Our focus is always on quality and customer service.
         </Typography>
-<br/>
+
+        <br />
+
         <Typography>
-          We sell a variety of products in our online store, 
+          We sell a variety of products in our online store,
           in person at various hobby conventions around the country, through distributors,
-          and are expanding to retail stores too. We have some microMANIA™ busts at 
-          The Source comic book store on Snelling Ave for any locals who may
-          want to check them out. 
+          and are expanding to retail stores, too.
         </Typography>
 
-        <br />
-        <hr />
-        <br />
+        <br /> <hr /> <br />
 
         <Typography>
-          This app was created by me, Leigh Stephenson, for my Prime Digital Academy solo project.
-          I knew from the beginning that I wanted to create something
-          that would also benefit the family business. I've watched Black Heart expand so much from the
-          beginning and it has been amazing that grown to where it is now. I'm really proud of this 
-          business that my dad has built and will take every opportunity to support it. 
+          This app was created by me, Leigh Stephenson, for my Prime Digital Academy
+          solo project. I knew from the beginning that I wanted to create something
+          that could also benefit the family business. I look forward to showing this
+          app to potential customers in the future.
         </Typography>
 
-          <Typography>
-            Technologies used:
-            
+        <br />
 
-            Future developments:
-          </Typography>
+        <center>
+          <Typography variant="h6"> Let's connect on LinkedIn!</Typography>
+          <img src="images/qr-code.jpg" width='70%' />
+        </center>
+
+        <br />
+
+        <Typography variant='h6'>
+          Technologies used:
+        </Typography>
+        <ul>
+          <li> React, Redux, AWS, Material UI, Express, PostgresSQL, Postico, Axios </li>
+        </ul>
+
+        <Typography variant='h6'>
+          Future developments:
+        </Typography>
+        <p> 
+          There are many things I could add to improve
+          this app further. Here are a few ideas:
+        </p>
+<ul>
+  <li> Allow each kit to have multiple photos</li>
+  <li> Implement a "like" or "reaction" feature </li>
+  <li> Allow users to "favorite" and store an item</li>
+</ul>
       </div>
     </div>
   );
