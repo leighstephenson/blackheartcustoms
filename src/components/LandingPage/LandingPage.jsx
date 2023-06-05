@@ -47,7 +47,6 @@ function LandingPage() {
   //   dispatch({ type: 'FETCH_COVER_PHOTOS' });
   // }, []);
 
-  //TODO Edit all of this text
   //! What displays
   return (
     <div className="container">
@@ -80,7 +79,7 @@ function LandingPage() {
         <br />
 
         On this website you will find examples of custom work
-        done by George and Leigh Stephenson.
+        done for Black Heart clients.
 
       </Typography>
 

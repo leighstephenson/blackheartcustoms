@@ -35,6 +35,11 @@ function AddNewKit() {
         }
     }, [kits]);
 
+     //! Use effect to make the page load at the postion I want
+     useEffect(() => {
+        window.scrollTo(0, 170)
+      }, [])
+
 
     // Handle Changes
     //! Name
@@ -54,7 +59,6 @@ function AddNewKit() {
     //! Back to dashboard
     const goBack = () => { history.push('/dashboard') };
 
-    // Something may be out of order here?
     //! ADD/SUBMIT
     const addNewKit = (event) => {
         event.preventDefault();
@@ -95,6 +99,9 @@ function AddNewKit() {
                                 label="Name"
                                 onChange={handleNameChange}
                                 required
+                                sx={{
+                                    width: 250,
+                                }}
                             />
                             <br /> <br />
 
@@ -102,8 +109,10 @@ function AddNewKit() {
                             <TextField
                                 label="Description"
                                 onChange={handleDescriptionChange}
-                                rows="12"
-                                required
+                                rows="5" multiline required
+                                sx={{
+                                    width: 250,
+                                }}
                             />
                             <br /> <br />
 
@@ -111,7 +120,10 @@ function AddNewKit() {
                             <TextField
                                 label="Character Backstory"
                                 onChange={handleBackstoryChange}
-                                rows="12"
+                                rows="5" multiline
+                                sx={{
+                                    width: 250,
+                                }}
 
                             />
 

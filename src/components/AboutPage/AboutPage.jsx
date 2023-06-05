@@ -2,9 +2,6 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import "./AboutPage.css";
 
-//TODO Add photos, QR code for black heart and for me 
-//TODO Maybe add more history on garage kit hobby
-
 function AboutPage() {
   return (
     <div className="container">

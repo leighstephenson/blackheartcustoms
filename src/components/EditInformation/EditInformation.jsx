@@ -134,14 +134,19 @@ function EditInformation() {
                                 defaultValue={selectedKit.name}
                                 onChange={handleNameChange}
                                 required
+                                sx={{
+                                    width: 250,
+                                }}
                             />
                             <br /> <br />
                             <TextField
                                 label="Description"
                                 defaultValue={selectedKit.description}
                                 onChange={handleDescriptionChange}
-                                rows="12"
-                                required
+                                rows="6" multiline required
+                                sx={{
+                                    width: 250,
+                                }}
                             />
                             <br /> <br />
 
@@ -150,7 +155,10 @@ function EditInformation() {
                                 label="Character Backstory"
                                 defaultValue={selectedKit.backstory}
                                 onChange={handleBackstoryChange}
-                                rows="12"
+                                rows="8" multiline 
+                                sx={{
+                                    width: 250,
+                                }}
 
 
                             />
@@ -162,6 +170,9 @@ function EditInformation() {
                                 defaultValue={selectedKit.url}
                                 onChange={handlePhotoChange}
                                 rows="12"
+                                sx={{
+                                    width: 250,
+                                }}
 
 
                             />
@@ -172,7 +183,10 @@ function EditInformation() {
                                 label="Order on Home Page"
                                 placeholder="Order"
                                 defaultValue={selectedKit.order}
-                                required onChange={handleOrderChange} />
+                                required onChange={handleOrderChange} 
+                                sx={{
+                                    width: 250,
+                                }}/>
 
 
                             <br /> <br /> <br />

@@ -15,9 +15,9 @@ function DetailsPage() {
     //! Stores our selected kit
     const selectedKit = useSelector((store) => store.selectedKit);
 
-    //! Use effect to make the page load to the TOP of the page.
+    //! Use effect to make the page load at the postion I want
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 180)
       }, [])
 
     //! Leads back to home
@@ -60,7 +60,7 @@ function DetailsPage() {
 
                     <br />
 
-                    <Typography sx={{ }}>
+                    <Typography variant="h6">
                         Description:
                     </Typography>
 
@@ -69,7 +69,7 @@ function DetailsPage() {
                     </Typography>
 
                     <br />
-                    <Typography sx={{ }}>
+                    <Typography variant="h6">
                         Backstory:
                     </Typography>
 

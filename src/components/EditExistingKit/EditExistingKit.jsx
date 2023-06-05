@@ -24,6 +24,11 @@ function EditExistingKit() {
         history.push(`/editInformation/${kit.id}`)
     };
 
+    //! Use effect to make the page load at the position I want
+    useEffect(() => {
+        window.scrollTo(0, 170)
+      }, [])
+
     //! Fetch the list of kits
     useEffect(() => {
         dispatch({ type: 'FETCH_KITS' });

@@ -30,9 +30,7 @@ function ContactPage() {
       <br />
 
       {/* Opens Black Heart's LinkTree in a new tab */}
-      <center>
         <a href={"https://linktr.ee/blackheartmodels"} target="_blank"> Visit our Linktree for all things Black Heart</a>
-      </center>
       
       <br /> <br />
       <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
