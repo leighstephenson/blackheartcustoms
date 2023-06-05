@@ -6,6 +6,9 @@ import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 import { Card } from '@mui/material';
+import UploadImages from '../UploadImages/UploadImages';
+
+
 
 
 function EditInformation() {
@@ -13,16 +16,27 @@ function EditInformation() {
     const dispatch = useDispatch();
     const history = useHistory();
     let { id } = useParams();
+    const [selectedKitHook, setSelectedKitHook] = useState({});
 
     //! Fetch selected kit
     useEffect(() => {
         dispatch({ type: 'FETCH_SELECTED_KIT', payload: id });
+        if (Object.keys(selectedKit).length === 0) {
+            setSelectedKitHook(selectedKit)
+        }
     }, []);
+
+
+    //! Use effect to make the page load to the TOP of the page.
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     //! Stores our kits
     // const kits = useSelector(store => store.kits);
     const selectedKit = useSelector((store) => store.selectedKit);
+
 
     //! States
     const [name, setKitName] = useState(selectedKit.name);
@@ -31,12 +45,10 @@ function EditInformation() {
     const [photo, setKitPhoto] = useState(selectedKit.photo);
     const [order, setKitOrder] = useState(selectedKit.order);
 
-
     //! Back to dashboard
     const goBack = () => { history.goBack() }
 
-
-    //! handleChange - need one for EACH value that can change. 
+    //! handleChange - need one for EACH value that can change.
     // values in kit: "name", "description", "backstory", "url"/"photo", "order"
 
     //! Name
@@ -68,13 +80,11 @@ function EditInformation() {
     //! Submit
     const submitChanges = (event) => {
         event.preventDefault();
-        console.log('dispatching the submit')
         dispatch({
             type: 'EDIT_KIT', payload: { id, name, description, backstory, photo, order }
         })
         history.push('/editExisting');
     };
-
 
     //! Deletes a kit from the database
     const deleteKit = () => {
@@ -85,7 +95,7 @@ function EditInformation() {
     };
 
 
-    //! What displays 
+    //! What displays
     return (
         <>
             <br />
@@ -94,101 +104,119 @@ function EditInformation() {
                 Edit Information
             </Typography>
             <br />
-            <center>
+            {/* conditional rendering here? */}
+            {!selectedKit.url ? (
+                <>
+                    <UploadImages />
+                </>
+            ) : (
+                <>
+                    <center>
+                        <Card sx={{
+                            width: 300,
+                            padding: 2,
+                            outline: 5,
+                            outlineColor: 'black',
+                            boxShadow: 4,
+                        }}>
+                            <img src={selectedKit.url} />
+                        </Card>
+                        <br />
+                        <br />
 
-                <Card sx={{ 
-                    width: 300, 
-                    padding: 2, 
-                    outline: 5, 
-                    outlineColor: 'black',
-                    boxShadow: 4,
+
                     
-                    }}>
-                    <img src={selectedKit.photo} />
-                </Card>
-                <br />
-                <br />
 
 
+                        <form onSubmit={submitChanges} autoComplete="off">
+                            <TextField
+                                label="Name"
+                                defaultValue={selectedKit.name}
+                                onChange={handleNameChange}
+                                required
+                            />
+                            <br /> <br />
+                            <TextField
+                                label="Description"
+                                defaultValue={selectedKit.description}
+                                onChange={handleDescriptionChange}
+                                rows="12"
+                                required
+                            />
+                            <br /> <br />
 
-                {/*//! Form to input new Kit information  
-            name, description, backstory, url, order */}
 
-                <form onSubmit={submitChanges} autoComplete="off">
+                            <TextField
+                                label="Character Backstory"
+                                defaultValue={selectedKit.backstory}
+                                onChange={handleBackstoryChange}
+                                rows="12"
 
-                    {/*//! Name Input */}
-                    <TextField
-                        label for="Name"
-                        defaultValue={selectedKit.name}
-                        onChange={handleNameChange}
-                        required
-                    />
-                    <br /> <br />
 
-                    {/*//! Description Input */}
-                    <TextField
-                        label for="Description"
-                        defaultValue={selectedKit.description}
-                        onChange={handleDescriptionChange}
-                        rows="12"
-                        required
-                    />
-                    <br /> <br />
+                            />
+                            <br /> <br />
 
-                    {/*//! Backstory Input */}
-                    <TextField
-                        label for="Character Backstory"
-                        defaultValue={selectedKit.backstory}
-                        onChange={handleBackstoryChange}
-                        rows="12"
 
-                    />
-                    <br /> <br />
+                            <TextField
+                                label="URL"
+                                defaultValue={selectedKit.url}
+                                onChange={handlePhotoChange}
+                                rows="12"
 
-                    {/*//! Url Input */}
-                    <TextField
-                        label for="URL"
-                        defaultValue={selectedKit.photo}
-                        onChange={handlePhotoChange}
-                        rows="12"
-                        
-                    />
-                    <br /> <br />
 
-                    {/*//! Order Input */}
-                    <TextField
-                        label for="Order on Home Page"
-                        placeholder="Order"
-                        defaultValue={selectedKit.order}
-                        required onChange={handleOrderChange} />
+                            />
+                            <br /> <br />
 
-                    <br /> <br /> <br />
 
-                    {/*//! Submit Button */}
-                    <button className="btn" variant="outlined">
-                        Submit
-                    </button>
+                            <TextField
+                                label="Order on Home Page"
+                                placeholder="Order"
+                                defaultValue={selectedKit.order}
+                                required onChange={handleOrderChange} />
 
-                    <br /> <br />
 
-                    {/*//! Button to delete kit */}
-                    <button className='delete-btn' onClick={deleteKit}>
-                        Delete Kit
+                            <br /> <br /> <br />
 
-                    </button>
 
-                    <br /> <br />
+                            <button className="btn" variant="outlined">
+                                Submit
+                            </button>
 
-                    {/*//! Button to go back */}
-                    <button className="btn" onClick={goBack}>
-                        Go Back
-                    </button>
-                </form>
-            </center>
+
+                            <br /> <br />
+
+
+                            <button className='delete-btn' onClick={deleteKit}>
+                                Delete Kit
+
+
+                            </button>
+
+
+                            <br /> <br />
+
+
+                            <button className="btn" onClick={goBack}>
+                                Go Back
+                            </button>
+
+
+                        </form>
+
+                    </center>
+                </> 
+
+            )
+            }
+
 
         </>
+
+
     )
 
+
 }; // End editInformation()
+
 
 export default EditInformation;

@@ -10,30 +10,23 @@ import { Input } from '@mui/material';
 function UploadImages() {
 
   //! Stores our kits
-  let kits = useSelector(store => store.kits);
+  const selectedKit = useSelector((store) => store.selectedKit);
 
 
   //! States
   let [thisKit, setThisKit] = useState({})
   let [myKits, setMyKits] = useState("")
+  let [heading, setHeading] = useState('Upload Image');
+  let [selectedFile, setSelectedFile] = useState('');
 
   //! Hooks
-  const [heading, setHeading] = useState('Upload Image');
-  const [selectedFile, setSelectedFile] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
 
   useEffect(() => {
-    if (kits.length === 0) {
-      dispatch({ type: 'FETCH_KITS' })
-    } else {
-      setMyKits(kits)
-      setThisKit(kits[kits.length - 1])
-      console.log(thisKit)
-
-    }
-  }, [kits, thisKit]);
+      dispatch({ type: 'FETCH_SELECTED_KIT', payload: id });
+  }, []);
 
 
   //! Back to dashboard
@@ -41,6 +34,7 @@ function UploadImages() {
   // const editExisting = () => { history.push('/editExisting') }
 
 
+  //! image upload stuff
   const onFileChange = (event) => {
     const fileToUpload = event.target.files[0];
     const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png', 'image/jpg'];
@@ -52,33 +46,24 @@ function UploadImages() {
   };
 
   const uploadImage = (event) => {
-    console.log('uploaded id',id);
-    console.log('this kit', thisKit);
-    console.log('myKits', myKits);
-
+    console.log('uploaded id', id);
     dispatch({ type: 'UPLOAD_PHOTO', payload: { selectedFile: selectedFile, kitId: id } });
     history.push(`/success`);
-
-
   };
 
   //! What displays
   return (
     <>
-      {myKits.length === "" ? (
+      { Object.keys(selectedKit).length === 0? (
         <>
           <h2>Loading</h2>
         </>
       ) : (
         <center>
-          <br /> <br />
+          
 
-          <Typography variant='h4'>{heading}</Typography>
+          <h3> Please choose an image for {selectedKit.name}</h3>
 
-          <br /> <br />
-
-          <h3> Please choose an image for {thisKit.name}</h3>
-         
           <br />
 
           <Input className='uploadInput'

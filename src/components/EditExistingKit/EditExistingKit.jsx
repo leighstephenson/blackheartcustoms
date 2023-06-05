@@ -33,9 +33,9 @@ function EditExistingKit() {
     //! What displays
     return (
         <>
-        <br/>
+            <br />
             <Typography variant="h4"
-                sx={{textAlign: 'center'}}>
+                sx={{ textAlign: 'center' }}>
                 Edit Existing Kit
             </Typography>
 

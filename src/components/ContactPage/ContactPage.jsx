@@ -48,12 +48,12 @@ function ContactPage() {
 
         <br /> <br />
 
-        Every kit is airbrushed and hand-painted, we spend several hours on each piece
+        Every kit is airbrushed and hand-painted. We spend several hours on each piece
         to ensure that you are proud to display our work.
 
         <br /> <br />
 
-        Please email us if you have any questions. Thank you!
+        Please email us for a quote. Thank you!
       </Typography>
 
     </div>

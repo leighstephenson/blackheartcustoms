@@ -6,7 +6,7 @@ const router = express.Router();
 //TODO change photo to URL later
 //! Get 
 router.get('/', (req, res) => {
-  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" ASC LIMIT 1) as "photo"  FROM "kit" as k ORDER BY "id" ASC;`;
+  const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" ASC LIMIT 1) as "photo"  FROM "kit" as k ORDER BY "id" DESC;`;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
@@ -21,8 +21,13 @@ router.get('/', (req, res) => {
 //! GET a selected kit
 router.get('/selected/:id', (req, res) => {
   const kitId = req.params.id
-  const queryText = `SELECT * FROM kits WHERE kit_id=$1`;
+  const queryText = `
+  SELECT kit.*, photos.id AS photo_id, photos.url
+  FROM "kit"
+  LEFT JOIN "photos" ON kit.id = photos.kit_id
+  WHERE kit.id = $1;`
   pool.query(queryText, [kitId]).then((result) => {
+    console.log(result.rows)
     res.send(result.rows);
   }).catch((error) => {
     console.log('ERROR in getting selected kit on router', error)
@@ -32,14 +37,12 @@ router.get('/selected/:id', (req, res) => {
 //TODO need to manipulate the 1 to set the order 
 //! ADD a new kit
 router.post('/', (req, res) => {
-  console.log(req.body);
   const insertKitQuery = `INSERT INTO "kit"
   ("name", "description", "backstory", "user_id", "order") 
   VALUES ($1, $2, $3, ${req.user.id}, 1) RETURNING "id";`
 
   pool.query(insertKitQuery, [req.body.kitName, req.body.description, req.body.backstory])
-    .then(result => {
-      console.log('Are we getting to the "add new" in kits router?');
+    .then(() => {
     }).catch(error => {
       console.log('Error in post on kits router', error);
       res.sendStatus(500)
@@ -49,7 +52,6 @@ router.post('/', (req, res) => {
 
 //! PUT TO UPDATE 
 router.put('/edit', (req, res) => {
-  console.log('In PUT request', req.body);
   let updatedKit = req.body;
   // Query to update kit
   // "name", "description", "backstory", "order"
@@ -80,7 +82,6 @@ router.put('/edit', (req, res) => {
 
 //! DELETE
 router.delete('/:id', (req, res) => {
-  console.log('In DELETE request');
   let deletedKit = req.params.id;
   // Query to delete a specific kit based on id
   let deleteKitQuery = `DELETE FROM "kit" WHERE "id" = $1;`

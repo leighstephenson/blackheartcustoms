@@ -31,9 +31,7 @@ function AddNewKit() {
             dispatch({ type: 'FETCH_KITS' })
         } else {
             setAllKits(kits)
-            console.log('allKits', allKits)
             setLastKit(kits[kits.length - 1])
-            console.log('lastKit', lastKit);
         }
     }, [kits]);
 
@@ -62,8 +60,7 @@ function AddNewKit() {
         event.preventDefault();
         dispatch({ type: 'ADD_NEW_KIT', payload: newKit, setNewKit: setNewKit });
         setNewKit({ kitName: '', description: '', backstory: '' });
-        console.log('lastKit on AddNew', lastKit)
-        history.push(`/uploadImages/${lastKit.id}`)
+        history.push(`/editExisting`)
     }
 
     //! What displays
@@ -95,7 +92,7 @@ function AddNewKit() {
 
                             {/*//! Name Input */}
                             <TextField
-                                label for="Name"
+                                label="Name"
                                 onChange={handleNameChange}
                                 required
                             />
@@ -103,7 +100,7 @@ function AddNewKit() {
 
                             {/*//! Description Input */}
                             <TextField
-                                label for="Description"
+                                label="Description"
                                 onChange={handleDescriptionChange}
                                 rows="12"
                                 required
@@ -112,7 +109,7 @@ function AddNewKit() {
 
                             {/*//! Backstory Input */}
                             <TextField
-                                label for="Character Backstory"
+                                label="Character Backstory"
                                 onChange={handleBackstoryChange}
                                 rows="12"
 

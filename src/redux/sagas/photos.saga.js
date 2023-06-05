@@ -4,7 +4,6 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 //TODO need to get this working 
     function * uploadPhoto(action){
-        console.log('Are we here in photos.saga?')
         try {
             const selectedFile= action.payload.selectedFile
             const kitId= action.payload.kitId
@@ -24,9 +23,7 @@ function* fetchCoverPhotos() {
     console.log('we are here in fetchCoverPhotos');
     try {
         const photos = yield axios.get('/api/photos');
-        console.log('Get photos:', photos.data);
         yield put({ type: 'SET_COVER_PHOTOS', payload: photos.data });
-
     } catch (error)  {
         console.log('Error in fetchCoverPhotos in photos.saga');
     }
