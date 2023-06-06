@@ -18,7 +18,7 @@ function DetailsPage() {
     //! Use effect to make the page load at the postion I want
     useEffect(() => {
         window.scrollTo(0, 180)
-      }, [])
+    }, [])
 
     //! Leads back to home
     const goBack = () => { history.goBack() }
@@ -74,7 +74,7 @@ function DetailsPage() {
                     </Typography>
 
                     <Typography>
-                        Character Backstory: {selectedKit.backstory}
+                        {selectedKit.backstory}
                     </Typography>
 
 

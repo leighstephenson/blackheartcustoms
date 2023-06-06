@@ -17,21 +17,22 @@ function ContactPage() {
       <br />
 
       {/* Contact info */}
-      <Typography>
+      <Typography variant='h6'>
 
-        The best place to reach us is via email at Goblackheart@comcast.NET
+        Send us an e-mail: <br />
+        <a href="mailto:goblackheart@comcast.net">Goblackheart@comcast.NET</a>
+        <br /> <hr/>
 
-        <br /> <br />
+        Check out our website: <br />
+        {/* Opens Black Heart's website in a new tab */}
+        <a href={"https:blackheartmodels.com"} target="_blank"> www.blackheartmodels.com</a>
+        <br /> <hr/>
 
-        Serious inquiries only please, it takes a considerable amount of time to
-        provide quotes on painting and shipping costs.
-
+        Follow us on social media: <br />
+        {/* Opens Black Heart's LinkTree in a new tab */}
+        <a href={"https://linktr.ee/blackheartmodels"} target="_blank"> Visit our Linktree </a>
       </Typography>
-      <br />
 
-      {/* Opens Black Heart's LinkTree in a new tab */}
-        <a href={"https://linktr.ee/blackheartmodels"} target="_blank"> Visit our Linktree for all things Black Heart</a>
-      
       <br /> <br />
       <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
 
@@ -51,7 +52,7 @@ function ContactPage() {
 
         <br /> <br />
 
-        Please email us for a quote. Thank you!
+        Please email us for a quote. Serious inquiries only please, thank you!
       </Typography>
 
     </div>

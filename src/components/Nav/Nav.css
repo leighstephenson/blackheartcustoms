@@ -7,6 +7,7 @@
   align-items: center;
   background-color: black;
   overflow: hidden;
+  padding-bottom: 2px;
 }
 
 .nav a {

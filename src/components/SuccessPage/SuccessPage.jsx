@@ -11,6 +11,11 @@ function SuccessPage() {
     const backToDash = () => {
         history.push('/dashboard')
     };
+
+     //! Takes user existing kits
+     const viewExisting = () => {
+        history.push('/dashboard')
+    };
     return (
 
         <>
@@ -28,6 +33,12 @@ function SuccessPage() {
                 </Typography>
 
                 <br /> <br /> <br />
+
+                <button className='btn' onClick={viewExisting}>
+                    View Existing Kits          
+                 </button>
+
+                 <br /> <br />
 
                 <button className='btn' onClick={backToDash}>
                     Back to Dashboard

@@ -27,10 +27,10 @@ function EditInformation() {
     }, []);
 
 
-    //! Use effect to make the page load to the TOP of the page.
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+     //! Use effect to make the page load at the position I want
+     useEffect(() => {
+        window.scrollTo(0, 170)
+      }, [])
 
 
     //! Stores our kits

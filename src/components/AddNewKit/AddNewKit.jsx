@@ -37,7 +37,7 @@ function AddNewKit() {
 
      //! Use effect to make the page load at the postion I want
      useEffect(() => {
-        window.scrollTo(0, 170)
+        window.scrollTo(0, 180)
       }, [])
 
 
