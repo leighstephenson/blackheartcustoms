@@ -25,7 +25,7 @@ function ContactPage() {
 
         Check out our website: <br />
         {/* Opens Black Heart's website in a new tab */}
-        <a href={"https:blackheartmodels.com"} target="_blank"> www.blackheartmodels.com</a>
+        <a href={"https:blackheartmodels.com"} target="_blank"> Www.blackheartmodels.com</a>
         <br /> <hr/>
 
         Follow us on social media: <br />
@@ -33,7 +33,7 @@ function ContactPage() {
         <a href={"https://linktr.ee/blackheartmodels"} target="_blank"> Visit our Linktree </a>
       </Typography>
 
-      <br /> <br />
+      <br /> 
       <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
 
       <br /> <hr />

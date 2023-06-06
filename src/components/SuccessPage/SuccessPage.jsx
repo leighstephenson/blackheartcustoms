@@ -14,7 +14,7 @@ function SuccessPage() {
 
      //! Takes user existing kits
      const viewExisting = () => {
-        history.push('/dashboard')
+        history.push('/editExisting')
     };
     return (
 

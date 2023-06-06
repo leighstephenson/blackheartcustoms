@@ -193,7 +193,7 @@ function EditInformation() {
 
 
                             <button className="btn" variant="outlined">
-                                Submit
+                                Save
                             </button>
 
 
