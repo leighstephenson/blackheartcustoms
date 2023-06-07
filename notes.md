@@ -46,3 +46,10 @@ List of more stuff to do:
 -Swap history.push for history.goBack on all back buttons
 -Differentiate "delete kit" button- make red or something to stand out 
 -progress bar for adding a new kit maybe? 
+
+6/6/23: 
+Stuff to do before deploying:
+-Format for web viewers, set max sizes for all images,
+center nav, restrict width for all text
+-Fix form label 
+-Do ReadMe
