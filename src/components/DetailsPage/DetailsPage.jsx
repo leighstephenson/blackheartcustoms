@@ -36,6 +36,8 @@ function DetailsPage() {
                 <CardContent>
                     <Typography variant="h7"
                         sx={{
+                            display: "flex",
+                            justifyContent: "center",
                             fontStyle: 'italic',
                         }}>
                         Details for

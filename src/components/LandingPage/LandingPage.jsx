@@ -109,6 +109,8 @@ function LandingPage() {
                   display: 'block',
                   padding: 1,
                   marginBottom: 3,
+                  width: "auto",
+                  maxHeight: "auto",
                   textAlign: 'center',
                   boxShadow: 4,
                 }}>
