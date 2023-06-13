@@ -26,6 +26,7 @@ function DetailsPage() {
     //! What displays
     return (
         <>
+        <center>
             <Card variant='outlined' sx={{
                 boxShadow: 10,
                 margin: 1,
@@ -35,8 +36,6 @@ function DetailsPage() {
                 <CardContent>
                     <Typography variant="h7"
                         sx={{
-                            display: "flex",
-                            justifyContent: "center",
                             fontStyle: 'italic',
                         }}>
                         Details for
@@ -54,7 +53,7 @@ function DetailsPage() {
 
                     <br />
 
-                    <Typography>
+                    <Typography >
                         <img src={selectedKit.photo} />
                     </Typography>
 
@@ -80,6 +79,7 @@ function DetailsPage() {
 
                 </CardContent>
             </Card>
+            </center>
 
             <br />
 

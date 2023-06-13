@@ -21,22 +21,26 @@ function ContactPage() {
 
         Send us an e-mail: <br />
         <a href="mailto:goblackheart@comcast.net">Goblackheart@comcast.NET</a>
-        <br /> <hr/>
+        <br /> <hr />
 
         Check out our website: <br />
         {/* Opens Black Heart's website in a new tab */}
         <a href={"https:blackheartmodels.com"} target="_blank"> Www.blackheartmodels.com</a>
-        <br /> <hr/>
+        <br /> <hr />
 
         Follow us on social media: <br />
         {/* Opens Black Heart's LinkTree in a new tab */}
         <a href={"https://linktr.ee/blackheartmodels"} target="_blank"> Visit our Linktree </a>
       </Typography>
 
-      <br /> 
-      <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
+      <br />
+
+      <center>
+        <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
+      </center>
 
       <br /> <hr />
+
       {/* Commission info */}
       <Typography variant="h5" sx={{ textAlign: 'center' }}> Commission process: </Typography>
 

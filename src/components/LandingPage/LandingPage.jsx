@@ -31,8 +31,8 @@ function LandingPage() {
   //! Sets selected kit and brings user to details
   const kitSelection = (kit) => {
     dispatch(
-    { type: 'SET_SELECTED_KIT', payload: kit },
-    // { type: 'SET_SELECTED_PHOTO', payload: photos }
+      { type: 'SET_SELECTED_KIT', payload: kit },
+      // { type: 'SET_SELECTED_PHOTO', payload: photos }
     );
     history.push('/details')
   };
@@ -59,29 +59,31 @@ function LandingPage() {
 
       <br />
 
-      <Typography variant="p"
-        sx={{
-          textAlign: 'center'
+      <center>
+        <Typography variant="p"
+          sx={{
+            textAlign: 'center',
 
-        }}>
-        Black Heart Models is a family-owned business that specializes in
-        busts and wall-hangers of a variety of sci-fi, horror,
-        and fantasy subjects.
+          }}>
+          Black Heart Models is a family-owned business that specializes in
+          busts and wall-hangers of a variety of sci-fi, horror,
+          and fantasy subjects.
 
-        <br />
-        <br />
+          <br />
+          <br />
 
-        Most of our products come unpainted, so we offer a custom
-        painting service for those who don't have the time, skill,
-        or patience to paint their own.
+          Most of our products come unpainted, so we offer a custom
+          painting service for those who don't have the time, skill,
+          or patience to paint their own.
 
-        <br />
-        <br />
+          <br />
+          <br />
 
-        On this website you will find examples of custom work
-        done for Black Heart clients.
+          On this website you will find examples of custom work
+          done for Black Heart clients.
 
-      </Typography>
+        </Typography>
+      </center>
 
       <br />
       <br />
@@ -107,17 +109,17 @@ function LandingPage() {
                   display: 'block',
                   padding: 1,
                   marginBottom: 3,
-                  width: "auto",
-                  maxHeight: "auto",
                   textAlign: 'center',
                   boxShadow: 4,
                 }}>
 
-                <Card onClick={() => kitSelection(kit)}>
-                  <h3> {kit.name} </h3>
-                  <img src={kit.photo} alt={kit.name} />
-                </Card>
-
+                <div className="container">
+                  <Card onClick={() => kitSelection(kit)}
+                    >
+                    <h3> {kit.name} </h3>
+                    <img src={kit.photo} alt={kit.name} />
+                  </Card>
+                </div>
 
               </Grid>
             );
