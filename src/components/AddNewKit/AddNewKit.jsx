@@ -4,12 +4,6 @@ import TextField from '@mui/material/TextField';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-// import ProgressBar from '../ProgressBar/ProgressBar';
-
-//? having an issue on this component..
-// I'm storing the "last"/most recent kit and the list of all kits, but when uploading an image
-// I am receiving the 2nd most recent kit ID instead of the newest, so my new 
-// upload is being added to the wrong kit. The lastKit is being set on page load, not on submit..
 
 function AddNewKit() {
 

@@ -5,8 +5,6 @@ import './LandingPage.css';
 import { Grid } from '@mui/material/';
 import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -18,11 +16,9 @@ function LandingPage() {
     history.push('/login');
   };
 
-
   //! Our hooks
   const dispatch = useDispatch();
   const history = useHistory();
-
 
   //! Stores our kits and photos?
   const kits = useSelector(store => store.kits);
@@ -69,15 +65,13 @@ function LandingPage() {
           busts and wall-hangers of a variety of sci-fi, horror,
           and fantasy subjects.
 
-          <br />
-          <br />
+          <br /> <br />
 
           Most of our products come unpainted, so we offer a custom
           painting service for those who don't have the time, skill,
           or patience to paint their own.
 
-          <br />
-          <br />
+          <br /> <br />
 
           On this website you will find examples of custom work
           done for Black Heart clients.
@@ -85,23 +79,17 @@ function LandingPage() {
         </Typography>
       </center>
 
-      <br />
-      <br />
-      <hr />
-      <br />
+      <br /> <br /> <hr /> <br />
 
       <Typography variant="h5"
         sx={{ textAlign: 'center', }}>
         Click a photo to view more details.
       </Typography>
 
-      <br />
-      <br />
+      <br /> <br />
 
       <div className="grid">
         <div>
-
-
           {kits.map(kit => {
             return (
               <Grid key={kit.id}
@@ -117,7 +105,7 @@ function LandingPage() {
 
                 <div className="container">
                   <Card onClick={() => kitSelection(kit)}
-                    >
+                  >
                     <h3> {kit.name} </h3>
                     <img src={kit.photo} alt={kit.name} />
                   </Card>
@@ -126,7 +114,6 @@ function LandingPage() {
               </Grid>
             );
           })}
-
 
         </div>
 

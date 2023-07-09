@@ -46,7 +46,7 @@ function AboutPage() {
 
         <center>
           <Typography variant="h6"> Let's connect on LinkedIn!</Typography>
-          <img src="images/qr-code.jpg" width='70%' />
+          <img src="images/flowcode.jpg" width='70%' />
         </center>
 
         <br />

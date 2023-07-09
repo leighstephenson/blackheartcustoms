@@ -1,8 +1,6 @@
 // import ProgressBar from '../ProgressBar/ProgressBar';
-import { Card, Typography } from '@mui/material';
-import { useDispatch } from "react-redux";
+import { Typography } from '@mui/material';
 import { useHistory } from 'react-router-dom'
-import Button from '@mui/material/Button';
 
 function SuccessPage() {
     const history = useHistory();

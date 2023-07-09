@@ -1,15 +1,10 @@
-//TODO imports here
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 import { Card } from '@mui/material';
 import UploadImages from '../UploadImages/UploadImages';
-
-
-
 
 function EditInformation() {
     //! Hooks
@@ -26,17 +21,14 @@ function EditInformation() {
         }
     }, []);
 
-
-     //! Use effect to make the page load at the position I want
-     useEffect(() => {
+    //! Use effect to make the page load at the position I want
+    useEffect(() => {
         window.scrollTo(0, 170)
-      }, [])
-
+    }, [])
 
     //! Stores our kits
     // const kits = useSelector(store => store.kits);
     const selectedKit = useSelector((store) => store.selectedKit);
-
 
     //! States
     const [name, setKitName] = useState(selectedKit.name);
@@ -94,7 +86,6 @@ function EditInformation() {
         }
     };
 
-
     //! What displays
     return (
         <>
@@ -121,12 +112,8 @@ function EditInformation() {
                         }}>
                             <img src={selectedKit.url} />
                         </Card>
-                        <br />
-                        <br />
 
-
-                    
-
+                        <br /> <br />
 
                         <form onSubmit={submitChanges} autoComplete="off">
                             <TextField
@@ -138,7 +125,9 @@ function EditInformation() {
                                     width: 250,
                                 }}
                             />
+
                             <br /> <br />
+
                             <TextField
                                 label="Description"
                                 defaultValue={selectedKit.description}
@@ -148,22 +137,20 @@ function EditInformation() {
                                     width: 250,
                                 }}
                             />
-                            <br /> <br />
 
+                            <br /> <br />
 
                             <TextField
                                 label="Character Backstory"
                                 defaultValue={selectedKit.backstory}
                                 onChange={handleBackstoryChange}
-                                rows="8" multiline 
+                                rows="8" multiline
                                 sx={{
                                     width: 250,
                                 }}
-
-
                             />
-                            <br /> <br />
 
+                            <br /> <br />
 
                             <TextField
                                 label="URL"
@@ -173,64 +160,43 @@ function EditInformation() {
                                 sx={{
                                     width: 250,
                                 }}
-
-
                             />
-                            <br /> <br />
 
+                            <br /> <br />
 
                             <TextField
                                 label="Order on Home Page"
                                 placeholder="Order"
                                 defaultValue={selectedKit.order}
-                                required onChange={handleOrderChange} 
+                                required onChange={handleOrderChange}
                                 sx={{
                                     width: 250,
-                                }}/>
-
+                                }} />
 
                             <br /> <br /> <br />
-
 
                             <button className="btn" variant="outlined">
                                 Save
                             </button>
 
-
                             <br /> <br />
-
 
                             <button className='delete-btn' onClick={deleteKit}>
                                 Delete Kit
-
-
                             </button>
 
-
                             <br /> <br />
-
 
                             <button className="btn" onClick={goBack}>
                                 Go Back
                             </button>
 
-
                         </form>
-
                     </center>
-                </> 
-
-            )
-            }
-
-
+                </>
+            )}
         </>
-
-
     )
-
-
 }; // End editInformation()
-
 
 export default EditInformation;

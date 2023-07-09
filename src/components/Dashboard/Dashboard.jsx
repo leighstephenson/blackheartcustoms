@@ -13,10 +13,6 @@ function Dashboard() {
 
   const user = useSelector((store) => store.user);
 
-  //! Leads to upload images
-  // const toUpload = () => { history.push('/uploadImages') }
-
-
   //! Leads to edit existing kit
   const toEditExistingKit = () => { history.push('/editExisting') }
 
@@ -49,7 +45,5 @@ function Dashboard() {
 
   );
 } //! End of function
-
-
 
 export default Dashboard;

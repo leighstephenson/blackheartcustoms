@@ -1,4 +1,3 @@
-import { red } from '@mui/material/colors';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -34,8 +33,7 @@ function LoginForm() {
         Login
       </Typography>
 
-      <br />
-      <br />
+      <br /> <br />
 
       {errors.loginMessage && (
         <h3 className="alert" role="alert">

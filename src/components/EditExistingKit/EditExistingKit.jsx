@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Grid } from '@mui/material';
 import { Typography } from "@mui/material";
-import { Button } from '@mui/material';
 import './EditExistingKit.css';
 
 function EditExistingKit() {
@@ -27,13 +26,12 @@ function EditExistingKit() {
     //! Use effect to make the page load at the position I want
     useEffect(() => {
         window.scrollTo(0, 170)
-      }, [])
+    }, [])
 
     //! Fetch the list of kits
     useEffect(() => {
         dispatch({ type: 'FETCH_KITS' });
     }, []);
-
 
     //! What displays
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-//TODO need to resolve issue with these importing
+//TODO Wanted to add social media icons to footer
 // import FacebookIcon from '@material-ui/icons/Facebook';
 // import TwitterIcon from '@material-ui/icons/Twitter';
 // import InstagramIcon from '@material-ui/icons/Instagram';
