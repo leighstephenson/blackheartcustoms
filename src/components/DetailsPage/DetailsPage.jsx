@@ -24,12 +24,14 @@ function DetailsPage() {
     const goBack = () => { history.goBack() }
 
     //! What displays
+    //TODO Set max width for photos and push to heroku 
     return (
         <>
         <center>
             <Card variant='outlined' sx={{
                 boxShadow: 10,
                 margin: 1,
+                maxWidth: 450,
 
 
             }}>

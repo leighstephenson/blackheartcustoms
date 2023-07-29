@@ -42,7 +42,7 @@ function AboutPage() {
             <br />
 
             <Typography>
-              This app was created by me, Leigh Stephenson, for my Prime Digital Academy
+              Black Heart Customs was created by me, Leigh Stephenson, for my Prime Digital Academy
               solo project. I knew from the beginning that I wanted to create something
               that could also benefit the family business. I look forward to showing this
               app to potential customers in the future.
