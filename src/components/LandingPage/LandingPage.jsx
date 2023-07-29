@@ -6,8 +6,6 @@ import { Grid } from '@mui/material/';
 import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
 
-// CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
@@ -20,9 +18,8 @@ function LandingPage() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  //! Stores our kits and photos?
+  //! Stores our kits 
   const kits = useSelector(store => store.kits);
-  // const photos = useSelector(store => store.photos);
 
   //! Sets selected kit and brings user to details
   const kitSelection = (kit) => {
@@ -38,11 +35,6 @@ function LandingPage() {
     dispatch({ type: 'FETCH_KITS' });
   }, []);
 
-  // //! Fetch the list of photos, not sure if I need this here yet
-  // useEffect(() => {
-  //   dispatch({ type: 'FETCH_COVER_PHOTOS' });
-  // }, []);
-
   //! What displays
   return (
     <div className="container">
@@ -56,27 +48,30 @@ function LandingPage() {
       <br />
 
       <center>
-        <Typography variant="p"
-          sx={{
-            textAlign: 'center',
+        <div className='welcomeText'>
+          <Typography
+            variant="p"
+            sx={{
+              textAlign: 'center',
 
-          }}>
-          Black Heart Models is a family-owned business that specializes in
-          busts and wall-hangers of a variety of sci-fi, horror,
-          and fantasy subjects.
+            }}>
+            Black Heart Models is a family-owned business that specializes in
+            busts and wall-hangers of a variety of sci-fi, horror,
+            and fantasy subjects.
 
-          <br /> <br />
+            <br /> <br />
 
-          Most of our products come unpainted, so we offer a custom
-          painting service for those who don't have the time, skill,
-          or patience to paint their own.
+            Most of our products come unpainted, so we offer a custom
+            painting service for those who don't have the time, skill,
+            or patience to paint their own.
 
-          <br /> <br />
+            <br /> <br />
 
-          On this website you will find examples of custom work
-          done for Black Heart clients.
+            On this website you will find examples of custom work
+            done for Black Heart clients.
 
-        </Typography>
+          </Typography>
+        </div>
       </center>
 
       <br /> <br /> <hr /> <br />
