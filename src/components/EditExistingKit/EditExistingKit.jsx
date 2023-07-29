@@ -60,7 +60,7 @@ function EditExistingKit() {
                             return (
                                 <Grid key={kit.id} sx={{
                                     display: 'block',
-                                    width: 300,
+                                    width: 400,
                                     justifyContent: 'center',
                                 }}>
                                     <Card

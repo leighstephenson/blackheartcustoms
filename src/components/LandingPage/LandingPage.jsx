@@ -48,7 +48,7 @@ function LandingPage() {
       <br />
 
       <center>
-        <div className='welcomeText'>
+        <div className='webText'>
           <Typography
             variant="p"
             sx={{
@@ -90,16 +90,19 @@ function LandingPage() {
               <Grid key={kit.id}
                 sx={{
                   display: 'block',
-                  padding: 1,
-                  marginBottom: 3,
-                  width: "auto",
-                  maxHeight: "auto",
-                  textAlign: 'center',
-                  boxShadow: 4,
+                  width: 470,
                 }}>
 
                 <div className="container">
-                  <Card onClick={() => kitSelection(kit)}
+                  <Card 
+                  sx={{
+                    boxShadow: 5,
+                    padding: 1,
+                    marginBottom: 2,
+                    textAlign: 'center',
+
+                  }}
+                  onClick={() => kitSelection(kit)}
                   >
                     <h3> {kit.name} </h3>
                     <img src={kit.photo} alt={kit.name} />

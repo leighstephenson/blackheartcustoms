@@ -133,3 +133,16 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.webText {
+  max-width: 850px;
+}
+
+.qrCode {
+  max-width: 500px;
+}
+
+.techDiv {
+  max-width: 500px;
+  display: inline;
+}
