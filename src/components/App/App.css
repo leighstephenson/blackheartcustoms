@@ -146,3 +146,20 @@ input {
   max-width: 500px;
   display: inline;
 }
+
+.contactPhoto {
+  max-width: 750px;
+}
+
+.vl {
+  border-left: 6px solid #A8A900;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+
+.contact {
+  max-width: 500px;
+}
