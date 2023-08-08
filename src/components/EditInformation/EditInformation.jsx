@@ -27,7 +27,6 @@ function EditInformation() {
     }, [])
 
     //! Stores our kits
-    // const kits = useSelector(store => store.kits);
     const selectedKit = useSelector((store) => store.selectedKit);
 
     //! States

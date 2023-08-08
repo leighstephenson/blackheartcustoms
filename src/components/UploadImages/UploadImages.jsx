@@ -26,7 +26,7 @@ function UploadImages() {
   const goBack = () => { history.push('/dashboard') }
   // const editExisting = () => { history.push('/editExisting') }
 
-  //! image upload stuff
+  //! Image upload stuff
   const onFileChange = (event) => {
     const fileToUpload = event.target.files[0];
     const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png', 'image/jpg'];

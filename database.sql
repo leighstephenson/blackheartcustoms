@@ -69,4 +69,3 @@ SELECT kit.*, photos.id AS photo_id, photos.url
 FROM "kit"
 LEFT JOIN "photos" ON kit.id = photos.kit_id
 WHERE kit.id = 1;
-

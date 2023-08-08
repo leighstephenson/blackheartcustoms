@@ -10,12 +10,13 @@ function SuccessPage() {
         history.push('/dashboard')
     };
 
-     //! Takes user existing kits
+     //! Takes user to existing kits
      const viewExisting = () => {
         history.push('/editExisting')
     };
-    return (
 
+    //! What Displays
+    return (
         <>
             <center>
                 <br /> <br /> <br />

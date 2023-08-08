@@ -55,7 +55,6 @@ function EditExistingKit() {
                 <div className="grid">
                     <div className="grid-col grid-col_8">
 
-
                         {kits.map(kit => {
                             return (
                                 <Grid key={kit.id} sx={{
@@ -88,8 +87,6 @@ function EditExistingKit() {
                                 </Grid>
                             );
                         })}
-
-
                     </div>
                 </div>
             </div>

@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-//! SELECT all kit columns PLUS the first photo (list of kits)
-//TODO change photo to URL later
-//! Get 
+//! Get all kits and photos
 router.get('/', (req, res) => {
   const query = `SELECT *, (SELECT "url" FROM "photos" WHERE "kit_id" = k.id ORDER BY "order" ASC LIMIT 1) as "photo"  FROM "kit" as k ORDER BY "id" DESC;`;
   pool.query(query)
@@ -15,7 +13,6 @@ router.get('/', (req, res) => {
       console.log('ERROR: Get all kits', error);
       res.sendStatus(500)
     })
-
 });
 
 //! GET a selected kit
@@ -49,13 +46,10 @@ router.post('/', (req, res) => {
     })
 });
 
-
 //! PUT TO UPDATE 
 router.put('/edit', (req, res) => {
   let updatedKit = req.body;
-  // Query to update kit
-  // "name", "description", "backstory", "order"
-  // only included values I want to change
+  // Query to update kit 
   let updateQuery = `UPDATE "kit" 
         SET "name" = $1, "description" = $2, "backstory" = $3, "order" = $4
         WHERE "id" = $5;`;
@@ -63,7 +57,6 @@ router.put('/edit', (req, res) => {
     [updatedKit.name,
     updatedKit.description,
     updatedKit.backstory,
-    // updatedKit.photo,
     updatedKit.order,
     updatedKit.id
     ])

@@ -7,8 +7,6 @@ import './Footer.css';
 // import MailOutlineIcon from '@material-ui/icons/MailOutline';
 // import LinkIcon from '@material-ui/icons/Link';
 
-// or even care what the redux state is, so it doesn't need 'connect()'
-
 function Footer() {
   return <footer>&copy; Black Heart Models </footer>;
 }

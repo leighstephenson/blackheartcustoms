@@ -6,7 +6,6 @@ import { Grid } from '@mui/material/';
 import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
 
-
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
 
@@ -38,10 +37,7 @@ function LandingPage() {
   //! What displays
   return (
     <div className="container">
-      <Typography variant="h3"
-        sx={{
-          textAlign: 'center'
-        }}>
+      <Typography variant="h3" sx={{ textAlign: 'center' }}>
         {heading}
       </Typography>
 
@@ -49,12 +45,8 @@ function LandingPage() {
 
       <center>
         <div className='webText'>
-          <Typography
-            variant="p"
-            sx={{
-              textAlign: 'center',
+          <Typography variant="p" sx={{ textAlign: 'center' }}>
 
-            }}>
             Black Heart Models is a family-owned business that specializes in
             busts and wall-hangers of a variety of sci-fi, horror,
             and fantasy subjects.
@@ -76,8 +68,7 @@ function LandingPage() {
 
       <br /> <br /> <hr /> <br />
 
-      <Typography variant="h5"
-        sx={{ textAlign: 'center', }}>
+      <Typography variant="h5" sx={{ textAlign: 'center', }}>
         Click a photo to view more details.
       </Typography>
 

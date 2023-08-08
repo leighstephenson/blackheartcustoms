@@ -58,12 +58,12 @@ function App() {
             {/* Visiting localhost:3000/about will show the about page. */}
 
             {/* shows AboutPage at all times (logged in or not) */}
-          //! home
+          //! Home
             <Route exact path="/home">
               <LandingPage />
             </Route>
 
-          //! about
+          //! About
             <Route exact path="/about">
               <AboutPage />
             </Route>
@@ -73,7 +73,7 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
 
-          //! user / dashboard
+          //! User / Admin Dashboard
             {/* logged in shows Dashboard else shows LoginPage */}
             {/*todo will be changing to dashboard */}
             <ProtectedRoute exact path="/dashboard">
@@ -100,7 +100,7 @@ function App() {
               <EditInformation />
             </ProtectedRoute>
 
-        //! contact
+        //! Contact
             <Route exact path="/contact">
               <ContactPage />
             </Route>
@@ -110,7 +110,7 @@ function App() {
               <SuccessPage />
             </Route>
 
-          //! login
+          //! Login
             <Route exact path="/login">
               {user.id ?
                 // If the user is already logged in, 
@@ -121,12 +121,13 @@ function App() {
                 <LoginPage />
               }
             </Route>
-            //! details
+
+            //! Details
             <Route exact path="/details">
               <DetailsPage />
             </Route>
 
-          //! registration, will be getting rid of direct paths
+          //! Registration
             <Route exact path="/registration">
 
               {user.id ?

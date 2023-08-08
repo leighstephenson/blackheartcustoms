@@ -12,7 +12,7 @@ import { takeEvery, put } from 'redux-saga/effects';
         } catch (error) {
             console.log('Error in uploadPhoto in photos.saga')
         }
-    }; // End uploadPhoto()
+    }
 
 //! Fetch cover photos for home page
 //TODO not using either of these in component right now, getting photos from-
@@ -25,8 +25,7 @@ function* fetchCoverPhotos() {
     } catch (error)  {
         console.log('Error in fetchCoverPhotos in photos.saga');
     }
-}; // End fetchCoverPhotos()
-
+}
 
 //! Fetch selected kit's photos
 function* fetchSelectedPhotos(action) {
@@ -38,11 +37,8 @@ function* fetchSelectedPhotos(action) {
     } catch (error){
         console.log(`Error in fetchSelectedPhotos in saga ${error}`)
     }
-} // End fetchPhoto()
+}
 
-
-
-//TODO add all the things ~
 function* photosSaga() {
      yield takeEvery('FETCH_COVER_PHOTOS', fetchCoverPhotos);
      yield takeEvery('FETCH_SELECTED_PHOTOS', fetchSelectedPhotos);

@@ -7,8 +7,7 @@ import { Typography } from '@mui/material';
 
 
 function Dashboard() {
-
-  //! Our hooks
+  //! Hooks
   let history = useHistory();
 
   const user = useSelector((store) => store.user);
@@ -41,9 +40,7 @@ function Dashboard() {
 
       </center>
     </div>
-
-
   );
-} //! End of function
+} //! End of Dashboard()
 
 export default Dashboard;

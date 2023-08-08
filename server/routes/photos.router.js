@@ -9,7 +9,6 @@ const s3Client = new aws.S3({
     region: process.env.AWS_REGION,
 });
 
-
 //!POST 
 router.post('/', async (req, res) => {
     try {

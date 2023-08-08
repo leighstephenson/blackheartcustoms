@@ -11,7 +11,6 @@ function LoginForm() {
 
   const login = (event) => {
     event.preventDefault();
-
     if (username && password) {
       dispatch({
         type: 'LOGIN',
@@ -41,36 +40,36 @@ function LoginForm() {
         </h3>
       )}
 
-<center>
+      <center>
 
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
+        <div>
+          <label htmlFor="username">
+            Username:
+            <input
+              type="text"
+              name="username"
+              required
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </label>
+        </div>
 
-      <div>
-        <label htmlFor="password">
-          Password:      
-          <input
-            type="password"
-            name="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
+        <div>
+          <label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              name="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </div>
 
         <input className="btn" type="submit" name="submit" value="Log In" />
-     
+
       </center>
 
     </form>

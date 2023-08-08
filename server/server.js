@@ -14,7 +14,6 @@ const userRouter = require('./routes/user.router');
 const allKitsRouter = require('./routes/allKits.router')
 const photosRouter = require('./routes/photos.router')
 
-
 // Accept photo uploads
 app.use(fileUpload());
 
@@ -33,7 +32,6 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/kit', allKitsRouter);
 app.use('/api/photos',photosRouter);
-
 
 // Serve static files
 app.use(express.static('build'));

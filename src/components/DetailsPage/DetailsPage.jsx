@@ -6,7 +6,6 @@ import Card from '@mui/material/Card';
 import CardContent from "@mui/material/CardContent";
 import './DetailsPage.css';
 
-
 function DetailsPage() {
 
     //! Our hooks
@@ -24,7 +23,6 @@ function DetailsPage() {
     const goBack = () => { history.goBack() }
 
     //! What displays
-    //TODO Set max width for photos and push to heroku 
     return (
         <>
         <center>
@@ -49,8 +47,6 @@ function DetailsPage() {
                         sx={{
                             fontStyle: 'italic',
                             textAlign: 'center',
-
-
                         }}>
                         {selectedKit.name}
                     </Typography>
@@ -80,7 +76,6 @@ function DetailsPage() {
                         {selectedKit.backstory}
                     </Typography>
 
-
                 </CardContent>
             </Card>
             </center>
@@ -92,9 +87,6 @@ function DetailsPage() {
                     Back
                 </button>
             </center>
-
-
-
         </>
     )
 }; // end of DetailsPage()
