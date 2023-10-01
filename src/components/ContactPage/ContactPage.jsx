@@ -25,7 +25,7 @@ function ContactPage() {
 
             Check out our website: <br />
             {/* Opens Black Heart's website in a new tab */}
-            <a href={"https:blackheartmodels.com"} target="_blank"> Www.blackheartmodels.com</a>
+            <a href={"https://blackheartmodels.com"} target="_blank"> Www.blackheartmodels.com</a>
             <br /> <hr />
 
             Follow us on social media: <br />
@@ -37,7 +37,7 @@ function ContactPage() {
         <br />
 
         <div className='contactPhoto'>
-          <img src="images/blackheart-postcard.jpg" alt="Black Heart Postcard" />
+          <img src="images/blackheart-postcard.jpg" alt="Black Heart Enterprises Postcard" />
         </div>
 
         <br /> <hr />

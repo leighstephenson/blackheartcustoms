@@ -5,6 +5,7 @@
 This mobile-friendly application displays custom paint work for customers of Black Heart Models. Users can view images, descriptions, and back stories. An "admin" user has the ability to add new kits and photos, or delete them. 
 
 ## Preview
+
 ![Home Page](./public/images/Preview.png)
 
 ## Demo
@@ -65,10 +66,35 @@ CREATE TABLE "photos" (
 ```
 
 ## Development Setup Instructions
--Open the built-in terminal in your editor of choice. I use Visual Studio Code.
+- Open the built-in terminal in your editor of choice. I use Visual Studio Code.
 - Run `npm install`
-- You will need to sign up for AWS and create an s3 bucket named "blackheartcustoms" and IAM user. 
-- Create a `.env` file at the root of the project and paste this code into the file:
+- You will need to sign up for AWS and create an s3 bucket with a unique name and an IAM user with "AmazonS3FullAccess" permission. 
+- Below is the policy I used for my s3 bucket:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::Your-Bucket-Name-Here/*"
+        },
+        {
+            "Sid": "Statement2",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "Your-IAM-User's-ARN-Here"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::Your-Bucket-Name-Here/*"
+        }
+    ]
+}
+```
+- Next create a `.env` file at the root of the project and paste this code into the file:
   ```
   SERVER_SESSION_SECRET=superDuperSecret
 
@@ -92,16 +118,6 @@ Before pushing to Heroku, run `npm run build` in terminal. This will create a bu
 - Start postgres if not running already by using `brew services start postgresql`
 - Run `npm start`
 - Navigate to `localhost:5042`
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
 
 ## Acknowledgement
 Thanks to Chris Black and Marc McCarthy at [Prime Digital Academy](www.primeacademy.io) for teaching me all the skills needed to build this app. Thanks to everyone in the Tanzanite cohort for support and encouragement!

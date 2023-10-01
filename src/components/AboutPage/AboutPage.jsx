@@ -55,7 +55,7 @@ function AboutPage() {
         <center>
           <Typography variant="h6"> Let's connect on LinkedIn!</Typography>
           <div className='qrCode'>
-            <img src="images/flowcode.jpg" width='70%' />
+            <img src="images/flowcode.jpg" alt="Link to LinkedIn" width='70%' />
           </div>
         </center>
 

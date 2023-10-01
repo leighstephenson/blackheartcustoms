@@ -28,6 +28,7 @@ router.get('/selected/:id', (req, res) => {
     res.send(result.rows);
   }).catch((error) => {
     console.log('ERROR in getting selected kit on router', error)
+    res.sendStatus(500)
   })
 });
 
