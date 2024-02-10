@@ -49,7 +49,7 @@ function LandingPage() {
 
             Black Heart Models is a family-owned business that specializes in
             busts and wall-hangers of a variety of sci-fi, horror,
-            and fantasy subjects.
+            historical, and fantasy subjects.
 
             <br /> <br />
 
@@ -85,15 +85,15 @@ function LandingPage() {
                 }}>
 
                 <div className="container">
-                  <Card 
-                  sx={{
-                    boxShadow: 5,
-                    padding: 1,
-                    marginBottom: 2,
-                    textAlign: 'center',
+                  <Card
+                    sx={{
+                      boxShadow: 5,
+                      padding: 1,
+                      marginBottom: 2,
+                      textAlign: 'center',
 
-                  }}
-                  onClick={() => kitSelection(kit)}
+                    }}
+                    onClick={() => kitSelection(kit)}
                   >
                     <h3> {kit.name} </h3>
                     <img src={kit.photo} alt={kit.name} />

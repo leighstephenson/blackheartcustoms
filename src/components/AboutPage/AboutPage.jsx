@@ -64,7 +64,7 @@ function AboutPage() {
         <center>
           <div className='techDiv'>
             <Typography variant='h7'>
-              Technologies used: React, Redux, AWS s3, Node,Express, PostgresSQL, Postico, Axios,  Material UI, CSS
+              Technologies used: React, Redux, AWS s3, Node, Express, PostgresSQL, Postico, Axios,  Material UI, CSS
             </Typography>
           </div>
         </center>
