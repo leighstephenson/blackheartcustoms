@@ -43,6 +43,14 @@ function UploadImages() {
     history.push(`/success`);
   };
 
+      //! Deletes a kit from the database
+      const deleteKit = () => {
+        if (window.confirm("Warning: This kit will be deleted")) {
+            dispatch({ type: 'DELETE_KIT', payload: id });
+            history.push('/editExisting')
+        }
+    };
+
   //! What displays
   return (
     <>
@@ -70,6 +78,12 @@ function UploadImages() {
           </button>
 
           <br /> <br />
+
+          <button className='delete-btn' onClick={deleteKit}>
+                                Delete Kit
+                            </button>
+
+                            <br /> <br />
 
           <button className="btn" onClick={goBack}>
             Back
